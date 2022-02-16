@@ -16,11 +16,11 @@ $clientes = new Clientes();
 			<br>
 			<div class="col-sm-12">
 				<img src="../../imagenes/bascula-15kg.jpg" alt="" width="100px" style="float: right;">
-				<p style="float: right; color: crimson;">Debes de pesar la referencia por talla. <br>toda la cantidad de prendas por talla ingresada debe ser pesada<br>COMANDOS PARA INTERARTUAR<br>CTRL = Reinventariar peso<br>F8 = Sumar peso</p>
+				<p style="float: right; color: crimson;">Debes de pesar la referencia por talla. <br>toda la cantidad de prendas por talla ingresada debe ser pesada<br>COMANDOS PARA INTERARTUAR<br>CTRL = Actualizar stock X peso<br>SHIFT = Actualizar stock X cantidad directamente<br>BLOG MAYUS = Actualizar peso inicial directamente<br>ALT = Actualizar stock inicial directamente<br>F8 = Acumular nuevo peso<br></p>
 			<?php
 			foreach ($inventarios->verInventarioId($_GET['id_inventario']) as $keyV) {
 			?>		
-				<h4>Reinventariado version 1.5 </h4>
+				<h4>Reinventariado version 2.0 </h4>
 				<br>
 				<legend>Reinventariando referencia: <?php echo $keyV['referencia']; ?><br><?php echo $keyV['descripcion']; ?><br>color: <?php echo $productos->color_hexa($keyV['color']); ?></legend>
 			<?php 
@@ -32,8 +32,6 @@ $clientes = new Clientes();
 			</div>
 			<div class="col-sm-4">
 			<?php
-
-				//print_r(@$_POST);
 
 				if (@$_POST['accion'] == 'verificarInventario') {
 					
@@ -72,7 +70,7 @@ $clientes = new Clientes();
 							
 							if($pesoTalla6 == NULL || $pesoTalla6 == '' || $talla6 == NULL || $talla6 == ''){
 
-								$comprobar6 = "<strong style='color:crimson;'>La TALLA 6<br>no se Reinventarea</strong>";
+								$comprobar6 = "<strong style='color:crimson;'>No se puede actualizar</strong>";
 
 							}else{
 
@@ -737,6 +735,21 @@ $clientes = new Clientes();
 					// Talla 6
 						$pesoTotalT6 = (double) @$_POST['peso_R6'];
 						$pesoXsumarT6 = $pesoTotalT6 + (double) @$_POST['talla6Ingreso'];
+						
+						$pesoTalla6 = (double) @$_POST['pesoTalla6Subida'];
+						$talla6 = (double) @$_POST['talla6Subida'];
+
+						if($pesoTalla6 == NULL || $pesoTalla6 == '' || $talla6 == NULL || $talla6 == ''){
+
+							$comprobar6 = "<strong style='color:crimson;'>No se puede actualizar</strong>";
+
+						}else{
+
+							$pesoUnitarioT6 = $pesoTalla6 / $talla6;
+							$XcantidadT6 = $pesoXsumarT6 / $pesoUnitarioT6;
+							$XcantidadT6 = round($XcantidadT6);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -965,6 +978,30 @@ $clientes = new Clientes();
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
 					// fin
+				}elseif(@$_POST['accion'] == 'actualizarDirectoSTOCK'){
+					if(@$_POST['nuevaTalla6Ingreso'] != ''){
+						$nuevaCantidadT6 = @$_POST['nuevaTalla6Ingreso'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla6 = '$nuevaCantidadT6' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+				}elseif(@$_POST['accion'] == 'actualizarDirectoPeso'){
+					if(@$_POST['nuevoPesoT6'] != ''){
+						$nuevaCantidadT6 = @$_POST['nuevoPesoT6'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET peso_talla6 = '$nuevaCantidadT6' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+				}elseif(@$_POST['accion'] == 'actualizarDirectoSTOCKinicial'){
+					if(@$_POST['nuevaTalla6Inicial'] != ''){
+						$nuevaCantidadT6Inicial = @$_POST['nuevaTalla6Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla6D = '$nuevaCantidadT6Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
 				}
 
 				// Serializando talla6
@@ -975,6 +1012,39 @@ $clientes = new Clientes();
 						$consulta = "UPDATE inventarios_productos SET peso_talla6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
 						$modules = $conexion->query($consulta);
 						@$_POST['serializadoT6'] = '';
+
+					}
+				
+				// Serializando talla6 R
+					if(@$_POST['serializadoT6R'] != ''){
+
+						require_once("../../modelo/db.php");
+						$conexion = new Conexion();
+						$consulta = "UPDATE inventarios_productos SET peso_R6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+						$modules = $conexion->query($consulta);
+						@$_POST['serializadoT6R'] = '';
+
+					}
+				
+				// Serializando Stock Inicial talla6
+					if(@$_POST['serializadoStockInicialT6'] != ''){
+
+						require_once("../../modelo/db.php");
+						$conexion = new Conexion();
+						$consulta = "UPDATE inventarios_productos SET talla6D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+						$modules = $conexion->query($consulta);
+						@$_POST['serializadoStockInicialT6'] = '';
+
+					}
+
+				// Serializando Stock actual talla6
+					if(@$_POST['serializadoStockT6'] != ''){
+
+						require_once("../../modelo/db.php");
+						$conexion = new Conexion();
+						$consulta = "UPDATE inventarios_productos SET talla6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+						$modules = $conexion->query($consulta);
+						@$_POST['serializadoStockT6'] = '';
 
 					}
 
@@ -1209,35 +1279,69 @@ $clientes = new Clientes();
 					<?php
 					foreach ($inventarios->verInventarioId($_GET['id_inventario']) as $key) {
 					?>
-						<div class="col-sm-2">
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar6)){
-																						echo 'de la talla 6 <br> Entraron:';
-																						if (empty($cantidadT6)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT6</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R6'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R6'];
+						<div class="col-sm-3">
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 6</strong><br>";
+																							if (empty($comprobar6)){
+																							}else {
+																								echo $comprobar6;
+																								$comprobar6 = "";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar6;
-																					}?>
-									<input type="text" required="" value="0" name="talla6Ingreso" id="talla6Ingreso" class="form-control">
+																							echo "<br>STOCK ACTUAL: ".$key['talla6']."<br>STOCK INICIAL: ".$key['talla6D']."<br>PESO ACTUAL: ".$key['peso_R6']."<br>PESO INICIAL: ".$key['peso_talla6']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT6)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT6</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT6)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT6;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R6'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R6'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla6Ingreso" id="talla6Ingreso" class="form-control" placeholder="Peso">
 									<input type="hidden" required="" value="<?php echo $key['peso_talla6'] ?>" name="pesoTalla6Subida" id="pesoTalla6" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['talla6D'] ?>" name="talla6Subida" id="talla6" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['peso_R6'] ?>" name="peso_R6" id="talla6" class="form-control">
-									<input type="hidden" name="serializadoT6" value="" id="serializarT6">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT6" style="width:130px;" onclick="serializarTalla6(event)">
-
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla6Ingreso" id="nuevaTalla6Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla6Inicial" id="nuevaTalla6Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT6" id="nuevoPesoT6" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT6" value="" id="serializarT6">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT6" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla6(event)">
+										<input type="hidden" name="serializadoT6R" value="" id="serializarT6R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT6R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla6R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT6" value="" id="serializadoStockInicialT6">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT6" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla6(event)">
+										<input type="hidden" name="serializadoStockT6" value="" id="serializadoStockT6">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT6" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla6(event)">
+									</div>
 								</label>
 							</div>
 							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
@@ -1879,12 +1983,34 @@ $clientes = new Clientes();
 	// 	$('#espacioTallas').slideToggle();
 	// });
 
-	// talla 6
+	// Peso talla 6
 		function serializarTalla6(event){
 			var i=document.getElementById("serializarT6").value = "serializarT6";
 			document.getElementById("enviarF").click();
+			var i=document.getElementById("serializarT6").value = "";
+		}
+	
+	// Peso talla 6 R
+		function serializarTalla6R(event){
+			var i=document.getElementById("serializarT6R").value = "serializarT6R";
+			document.getElementById("enviarF").click();
+			var i=document.getElementById("serializarT6R").value = "";
+		}
+	
+	// Stock inicial talla 6
+		function serializarStockInicialTalla6(event){
+			var i=document.getElementById("serializadoStockInicialT6").value = "serializadoStockInicialT6";
+			document.getElementById("enviarF").click();
+			var i=document.getElementById("serializarT6R").value = "";
 		}
 
+	// Stock actual talla 6
+	
+	function serializarStockTalla6(event){
+			var i=document.getElementById("serializadoStockT6").value = "serializadoStockT6";
+			document.getElementById("enviarF").click();
+			var i=document.getElementById("serializarT6R").value = "";
+		}
 	// talla 18
 		function serializarTalla18(event){
 			var i=document.getElementById("serializarT18").value = "serializarT18";
@@ -2010,6 +2136,8 @@ $clientes = new Clientes();
 
 			var codigo = event.which || event.keyCode;
 
+			console.log(codigo);
+
 			if(codigo === 119){
 				var i=document.getElementById("botonEnviarF").value = "sumarPeso";
 				document.getElementById("enviarF").click();
@@ -2089,6 +2217,34 @@ $clientes = new Clientes();
 				alert("Los cambios no se realizaron");
 				}
 			
+			}
+
+			if(codigo === 16){
+				var i=document.getElementById("botonEnviarF").value = "actualizarDirectoSTOCK";
+				var opcion = confirm("Seguro que quiere actualizar directamente el STOCK de la referencia?");
+				if(opcion == true){
+					document.getElementById("enviarF").click();
+				}else{
+				}
+			}
+
+			if(codigo === 20){
+				var i=document.getElementById("botonEnviarF").value = "actualizarDirectoPeso";
+				var opcion = confirm("Seguro que quiere actualizar directamente el Peso inicial de la referencia?");
+				if(opcion == true){
+					document.getElementById("enviarF").click();
+				}else{
+				}
+			}
+
+			if(codigo === 18){
+				
+				var i=document.getElementById("botonEnviarF").value = "actualizarDirectoSTOCKinicial";
+				var opcion = confirm("Seguro que quiere actualizar directamente el stock inicial de la referencia?");
+				if(opcion == true){
+					document.getElementById("enviarF").click();
+				}else{
+				}
 			}
 		}
 
