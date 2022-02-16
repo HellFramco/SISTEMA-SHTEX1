@@ -16,7 +16,7 @@ $clientes = new Clientes();
 			<br>
 			<div class="col-sm-12">
 				<img src="../../imagenes/bascula-15kg.jpg" alt="" width="100px" style="float: right;">
-				<p style="float: right; color: crimson;">Debes de pesar la referencia por talla. <br>toda la cantidad de prendas por talla ingresada debe ser pesada<br>COMANDOS PARA INTERARTUAR<br>CTRL = Actualizar stock X peso<br>SHIFT = Actualizar stock X cantidad directamente<br>BLOG MAYUS = Actualizar peso inicial directamente<br>ALT = Actualizar stock inicial directamente<br>F8 = Acumular nuevo peso<br></p>
+				<p style="float: right; color: crimson;">COMANDOS PARA INTERARTUAR<br>CTRL = Actualizar stock X peso<br>SHIFT = Actualizar stock X cantidad directamente<br>BLOG MAYUS = Actualizar peso inicial directamente<br>ALT = Actualizar stock inicial directamente<br>F8 = Acumular nuevo peso<br></p>
 			<?php
 			foreach ($inventarios->verInventarioId($_GET['id_inventario']) as $keyV) {
 			?>		
@@ -28,11 +28,10 @@ $clientes = new Clientes();
 			?>
 			</div>
 			<div class="col-sm-4">
-			
 			</div>
 			<div class="col-sm-4">
 			<?php
-
+				//print_r($_POST);
 				if (@$_POST['accion'] == 'verificarInventario') {
 					
 					$pesoTotal6 = (double) @$_POST['peso_R6'];
@@ -1004,51 +1003,52 @@ $clientes = new Clientes();
 					}
 				}
 
-				// Serializando talla6
-					if(@$_POST['serializadoT6'] != ''){
+				// Resetear variables Talla 6
+					// Serializando peso talla6
+						if(@$_POST['serializadoT6'] != ''){
 
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT6'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT6'] = '';
 
-					}
-				
-				// Serializando talla6 R
-					if(@$_POST['serializadoT6R'] != ''){
+						}
+					
+					// Serializando peso talla6 R
+						if(@$_POST['serializadoT6R'] != ''){
 
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_R6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT6R'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT6R'] = '';
 
-					}
-				
-				// Serializando Stock Inicial talla6
-					if(@$_POST['serializadoStockInicialT6'] != ''){
+						}
+					
+					// Serializando Stock Inicial talla6
+						if(@$_POST['serializadoStockInicialT6'] != ''){
 
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET talla6D = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoStockInicialT6'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla6D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT6'] = '';
 
-					}
+						}
 
-				// Serializando Stock actual talla6
-					if(@$_POST['serializadoStockT6'] != ''){
+					// Serializando Stock actual talla6
+						if(@$_POST['serializadoStockT6'] != ''){
 
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET talla6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoStockT6'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla6 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT6'] = '';
 
-					}
+						}
 
-				// Serializando talla18
+				// Resetear variables Talla 18
 					if(@$_POST['serializadoT18'] != ''){
 						
 						require_once("../../modelo/db.php");
@@ -1274,12 +1274,13 @@ $clientes = new Clientes();
 			<form action="" method="post" onkeyup="onKeyDownHandler(event);">
 				<div id="espacioTallas">
 					<div class="col-sm-12">
-						<legend>Tallas</legend>
+						<legend>TALLAS X REFERENCIA</legend>
 					</div>
 					<?php
 					foreach ($inventarios->verInventarioId($_GET['id_inventario']) as $key) {
 					?>
 						<div class="col-sm-3">
+							<!-- Talla 6 -->
 							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
 								<label style="color: gray; text-transform: uppercase;" for=""><?php 
 																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 6</strong><br>";
@@ -1319,13 +1320,13 @@ $clientes = new Clientes();
 									<?php
 										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
 									?>
-									<input type="text" value="" name="nuevaTalla6Ingreso" id="nuevaTalla6Ingreso" class="form-control" placeholder="Nuevo stock actual">
-									<input type="text" value="" name="nuevaTalla6Inicial" id="nuevaTalla6Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<input title="SHIFT" type="text" value="" name="nuevaTalla6Ingreso" id="nuevaTalla6Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input title="ALT" type="text" value="" name="nuevaTalla6Inicial" id="nuevaTalla6Inicial" class="form-control" placeholder="Nuevo stock inicial">
 									<?php
 										echo "-------------------------------------------------<br>";
 										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
 									?>
-									<input type="text" value="" name="nuevoPesoT6" id="nuevoPesoT6" class="form-control" placeholder="Peso Nuevo">
+									<input title="BLOG MAYUS" type="text" value="" name="nuevoPesoT6" id="nuevoPesoT6" class="form-control" placeholder="Peso Nuevo">
 									<?php
 										echo "-------------------------------------------------<br>";
 										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
@@ -1344,621 +1345,1321 @@ $clientes = new Clientes();
 									</div>
 								</label>
 							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar18)){
-																						echo 'de la talla 18 <br> Entraron:';
-																						if (empty($cantidadT18)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT18</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R18'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R18'];
+							<!-- Talla 14 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 14</strong><br>";
+																							if (empty($comprobar14)){
+																							}else {
+																								echo $comprobar14;
+																								$comprobar14 = "";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar18;
-																					}?>
-									<input type="text" required="" value="0" name="talla18Ingreso" id="talla18Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla18'] ?>" name="pesoTalla18Subida" id="pesoTalla18" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla18D'] ?>" name="talla18Subida" id="talla18" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R18'] ?>" name="peso_R18" id="talla18" class="form-control">
-									<input type="hidden" name="serializadoT18" value="" id="serializarT18">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT18" style="width:130px;" onclick="serializarTalla18(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar34)){
-																						echo 'de la talla 34 <br> Entraron:';
-																						if (empty($cantidadT34)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT34</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R34'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R34'];
+																							echo "<br>STOCK ACTUAL: ".$key['talla14']."<br>STOCK INICIAL: ".$key['talla14D']."<br>PESO ACTUAL: ".$key['peso_R14']."<br>PESO INICIAL: ".$key['peso_talla14']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT14)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT14</strong>";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar34;
-																					}?>
-									<input type="text" required="" value="0" name="talla34Ingreso" id="talla34Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla34'] ?>" name="pesoTalla34Subida" id="pesoTalla34" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla34D'] ?>" name="talla34Subida" id="talla34" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R34'] ?>" name="peso_R34" id="talla34" class="form-control">
-									<input type="hidden" name="serializadoT34" value="" id="serializarT34">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT34" style="width:130px;" onclick="serializarTalla34(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobarxl)){
-																						echo 'de la talla xl <br> Entraron:';
-																						if (empty($cantidadTxl)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTxl</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_Rxl'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_Rxl'];
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT14)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT14;
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobarxl;
-																					}?>
-									<input type="text" required="" value="0" name="tallaxlIngreso" id="tallaxlIngreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_tallaxl'] ?>" name="pesoTallaxlSubida" id="pesoTallaxl" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['tallaxlD'] ?>" name="tallaxlSubida" id="tallaxl" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_Rxl'] ?>" name="peso_Rxl" id="tallaxl" class="form-control">
-									<input type="hidden" name="serializadoTxl" value="" id="serializarTxl">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarTxl" style="width:130px;" onclick="serializarTallaxl(event)">
-
-								</label>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar8)){
-																						echo 'de la talla 8 <br> Entraron:';
-																						if (empty($cantidadT8)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT8</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R8'])) {
-																							echo 0;
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R14'])) {
+																								echo 0;
 																							} else {
-																								echo $key['peso_R8'];
+																									echo $key['peso_R14'];
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar8;
-																					}?>
-									<input type="text" required="" value="0" name="talla8Ingreso" id="talla8Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla8'] ?>" name="pesoTalla8Subida" id="pesoTalla8" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla8D'] ?>" name="talla8Subida" id="talla8" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R8'] ?>" name="peso_R8" id="talla8" class="form-control">
-									<input type="hidden" name="serializadoT8" value="" id="serializarT8">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT8" style="width:130px;" onclick="serializarTalla8(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar20)){
-																						echo 'de la talla 20 <br> Entraron:';
-																						if (empty($cantidadT20)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT20</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R20'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R20'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar20;
-																					}?>
-									<input type="text" required="" value="0" name="talla20Ingreso" id="talla20Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla20'] ?>" name="pesoTalla20Subida" id="pesoTalla20" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla20D'] ?>" name="talla20Subida" id="talla20" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R20'] ?>" name="peso_R20" id="talla20" class="form-control">
-									<input type="hidden" name="serializadoT20" value="" id="serializarT20">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT20" style="width:130px;" onclick="serializarTalla20(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar36)){
-																						echo 'de la talla 36 <br> Entraron:';
-																						if (empty($cantidadT36)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT36</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R36'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R36'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar36;
-																					}?>
-									<input type="text" required="" value="0" name="talla36Ingreso" id="talla36Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla36'] ?>" name="pesoTalla36Subida" id="pesoTalla36" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla36D'] ?>" name="talla36Subida" id="talla36" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R36'] ?>" name="peso_R36" id="talla36" class="form-control">
-									<input type="hidden" name="serializadoT36" value="" id="serializarT36">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT36" style="width:130px;" onclick="serializarTalla36(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobaru)){
-																						echo 'de la talla u <br> Entraron:';
-																						if (empty($cantidadTu)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTu</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_Ru'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_Ru'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobaru;
-																					}?>
-									<input type="text" required="" value="0" name="tallauIngreso" id="tallauIngreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_tallau'] ?>" name="pesoTallauSubida" id="pesoTallau" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['tallauD'] ?>" name="tallauSubida" id="tallau" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_Ru'] ?>" name="peso_Ru" id="tallau" class="form-control">
-									<input type="hidden" name="serializadoTu" value="" id="serializarTu">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarTu" style="width:130px;" onclick="serializarTallau(event)">
-
-								</label>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar10)){
-																						echo 'de la talla 10 <br> Entraron:';
-																						if (empty($cantidadT10)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT10</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R10'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R10'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar10;
-																					}?>
-									<input type="text" required="" value="0" name="talla10Ingreso" id="talla10Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla10'] ?>" name="pesoTalla10Subida" id="pesoTalla10" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla10D'] ?>" name="talla10Subida" id="talla10" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R10'] ?>" name="peso_R10" id="talla10" class="form-control">
-									<input type="hidden" name="serializadoT10" value="" id="serializarT10">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT10" style="width:130px;" onclick="serializarTalla10(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar26)){
-																						echo 'de la talla 26 <br> Entraron:';
-																						if (empty($cantidadT26)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT26</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R26'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R26'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar26;
-																					}?>
-									<input type="text" required="" value="0" name="talla26Ingreso" id="talla26Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla26'] ?>" name="pesoTalla26Subida" id="pesoTalla26" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla26D'] ?>" name="talla26Subida" id="talla26" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R26'] ?>" name="peso_R26" id="talla26" class="form-control">
-									<input type="hidden" name="serializadoT26" value="" id="serializarT26">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT26" style="width:130px;" onclick="serializarTalla26(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar38)){
-																						echo 'de la talla 38 <br> Entraron:';
-																						if (empty($cantidadT38)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT38</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R38'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R38'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar38;
-																					}?>
-									<input type="text" required="" value="0" name="talla38Ingreso" id="talla38Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla38'] ?>" name="pesoTalla38Subida" id="pesoTalla38" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla38D'] ?>" name="talla38Subida" id="talla38" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R38'] ?>" name="peso_R38" id="talla38" class="form-control">
-									<input type="hidden" name="serializadoT38" value="" id="serializarT38">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT38" style="width:130px;" onclick="serializarTalla38(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobarest)){
-																						echo 'de la talla est <br> Entraron:';
-																						if (empty($cantidadTest)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTest</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_Rest'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_Rest'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobarest;
-																					}?>
-									<input type="text" required="" value="0" name="tallaestIngreso" id="tallaestIngreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_tallaest'] ?>" name="pesoTallaestSubida" id="pesoTallaest" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['tallaestD'] ?>" name="tallaestSubida" id="tallaest" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_Rest'] ?>" name="peso_Rest" id="tallaest" class="form-control">
-									<input type="hidden" name="serializadoTest" value="" id="serializarTest">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarTest" style="width:130px;" onclick="serializarTallaest(event)">
-
-								</label>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar12)){
-																						echo 'de la talla 12 <br> Entraron:';
-																						if (empty($cantidadT12)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT12</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R12'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R12'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar12;
-																					}?>
-									<input type="text" required="" value="0" name="talla12Ingreso" id="talla12Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla12'] ?>" name="pesoTalla12Subida" id="pesoTalla12" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla12D'] ?>" name="talla12Subida" id="talla12" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R12'] ?>" name="peso_R12" id="talla12" class="form-control">
-									<input type="hidden" name="serializadoT12" value="" id="serializarT12">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT12" style="width:130px;" onclick="serializarTalla12(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar28)){
-																						echo 'de la talla 28 <br> Entraron:';
-																						if (empty($cantidadT28)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT28</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R28'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R28'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar28;
-																					}?>
-									<input type="text" required="" value="0" name="talla28Ingreso" id="talla28Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla28'] ?>" name="pesoTalla28Subida" id="pesoTalla28" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla28D'] ?>" name="talla28Subida" id="talla28" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R28'] ?>" name="peso_R28" id="talla28" class="form-control">
-									<input type="hidden" name="serializadoT28" value="" id="serializarT28">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT28" style="width:130px;" onclick="serializarTalla28(event)">
-
-								</label>
-							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobars)){
-																						echo 'de la talla s <br> Entraron:';
-																						if (empty($cantidadTs)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTs</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_Rs'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_Rs'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobars;
-																					}?>
-									<input type="text" required="" value="0" name="tallasIngreso" id="tallasIngreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_tallas'] ?>" name="pesoTallasSubida" id="pesoTallas" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['tallasD'] ?>" name="tallasSubida" id="tallas" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_Rs'] ?>" name="peso_Rs" id="tallas" class="form-control">
-									<input type="hidden" name="serializadoTs" value="" id="serializarTs">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarTs" style="width:130px;" onclick="serializarTallas(event)">
-
-								</label>
-							</div>
-						</div>
-
-						<div class="col-sm-2">
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar14)){
-																						echo 'de la talla 14 <br> Entraron:';
-																						if (empty($cantidadT14)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT14</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R14'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R14'];
-																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar14;
-																					}?>
-									<input type="text" required="" value="0" name="talla14Ingreso" id="talla14Ingreso" class="form-control">
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla14Ingreso" id="talla14Ingreso" class="form-control" placeholder="Peso">
 									<input type="hidden" required="" value="<?php echo $key['peso_talla14'] ?>" name="pesoTalla14Subida" id="pesoTalla14" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['talla14D'] ?>" name="talla14Subida" id="talla14" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['peso_R14'] ?>" name="peso_R14" id="talla14" class="form-control">
-									<input type="hidden" name="serializadoT14" value="" id="serializarT14">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT14" style="width:130px;" onclick="serializarTalla14(event)">
-
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla14Ingreso" id="nuevaTalla14Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla14Inicial" id="nuevaTalla14Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT14" id="nuevoPesoT14" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT14" value="" id="serializarT14">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT14" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla14(event)">
+										<input type="hidden" name="serializadoT14R" value="" id="serializarT14R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT14R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla14R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT14" value="" id="serializadoStockInicialT14">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT14" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla14(event)">
+										<input type="hidden" name="serializadoStockT14" value="" id="serializadoStockT14">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT14" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla14(event)">
+									</div>
 								</label>
 							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar30)){
-																						echo 'de la talla 30 <br> Entraron:';
-																						if (empty($cantidadT30)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT30</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R30'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R30'];
+							<!-- Talla 26 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 26</strong><br>";
+																							if (empty($comprobar26)){
+																							}else {
+																								echo $comprobar26;
+																								$comprobar26 = "";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar30;
-																					}?>
-									<input type="text" required="" value="0" name="talla30Ingreso" id="talla30Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla30'] ?>" name="pesoTalla30Subida" id="pesoTalla30" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla30D'] ?>" name="talla30Subida" id="talla30" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R30'] ?>" name="peso_R30" id="talla30" class="form-control">
-									<input type="hidden" name="serializadoT30" value="" id="serializarT30">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT30" style="width:130px;" onclick="serializarTalla30(event)">
-
+																							echo "<br>STOCK ACTUAL: ".$key['talla26']."<br>STOCK INICIAL: ".$key['talla26D']."<br>PESO ACTUAL: ".$key['peso_R26']."<br>PESO INICIAL: ".$key['peso_talla26']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT26)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT26</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT26)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT26;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R26'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R26'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla26Ingreso" id="talla26Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla26'] ?>" name="pesoTalla26Subida" id="pesoTalla26" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla26D'] ?>" name="talla26Subida" id="talla26" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R26'] ?>" name="peso_R26" id="talla26" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla26Ingreso" id="nuevaTalla26Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla26Inicial" id="nuevaTalla26Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT26" id="nuevoPesoT26" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT26" value="" id="serializarT26">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT26" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla26(event)">
+										<input type="hidden" name="serializadoT26R" value="" id="serializarT26R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT26R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla26R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT26" value="" id="serializadoStockInicialT26">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT26" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla26(event)">
+										<input type="hidden" name="serializadoStockT26" value="" id="serializadoStockT26">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT26" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla26(event)">
+									</div>
 								</label>
 							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobarm)){
-																						echo 'de la talla m <br> Entraron:';
-																						if (empty($cantidadTm)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTm</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_Rm'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_Rm'];
+							<!-- Talla 34 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																								echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 34</strong><br>";
+																								if (empty($comprobar34)){
+																								}else {
+																									echo $comprobar34;
+																									$comprobar34 = "";
+																								}
+																								echo "<br>STOCK ACTUAL: ".$key['talla34']."<br>STOCK INICIAL: ".$key['talla34D']."<br>PESO ACTUAL: ".$key['peso_R34']."<br>PESO INICIAL: ".$key['peso_talla34']."<br>-------------------------------------------------<br>";
+																								echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																								if (empty($cantidadT34)){
+																									echo 0;
+																								}else {
+																									echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT34</strong>";
+																								}
+																								echo "<br>";
+																								echo "Por actualizar:";
+																								if (empty($XcantidadT34)){
+																									echo 0;
+																								}else {
+																									echo $XcantidadT34;
+																								}
+																								echo "<br>";
+																								echo 'Nuevo Peso :';
+																								if (empty($key['peso_R34'])) {
+																									echo 0;
+																								} else {
+																										echo $key['peso_R34'];
+																								}
+																								echo "<br>";
+																						?>
+									<input type="text" required="" value="0" name="talla34Ingreso" id="talla34Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla34'] ?>" name="pesoTalla34Subida" id="pesoTalla34" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla34D'] ?>" name="talla34Subida" id="talla34" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R34'] ?>" name="peso_R34" id="talla34" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla34Ingreso" id="nuevaTalla34Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla34Inicial" id="nuevaTalla34Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT34" id="nuevoPesoT34" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT34" value="" id="serializarT34">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT34" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla34(event)">
+										<input type="hidden" name="serializadoT34R" value="" id="serializarT34R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT34R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla34R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT34" value="" id="serializadoStockInicialT34">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT34" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla34(event)">
+										<input type="hidden" name="serializadoStockT34" value="" id="serializadoStockT34">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT34" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla34(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla M -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA M</strong><br>";
+																							if (empty($comprobarm)){
+																							}else {
+																								echo $comprobarm;
+																								$comprobarm = "";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobarm;
-																					}?>
-									<input type="text" required="" value="0" name="tallamIngreso" id="tallamIngreso" class="form-control">
+																							echo "<br>STOCK ACTUAL: ".$key['tallam']."<br>STOCK INICIAL: ".$key['tallamD']."<br>PESO ACTUAL: ".$key['peso_Rm']."<br>PESO INICIAL: ".$key['peso_tallam']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadTm)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTm</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadTm)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadTm;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_Rm'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_Rm'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="tallamIngreso" id="tallamIngreso" class="form-control" placeholder="Peso">
 									<input type="hidden" required="" value="<?php echo $key['peso_tallam'] ?>" name="pesoTallamSubida" id="pesoTallam" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['tallamD'] ?>" name="tallamSubida" id="tallam" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['peso_Rm'] ?>" name="peso_Rm" id="tallam" class="form-control">
-									<input type="hidden" name="serializadoTm" value="" id="serializarTm">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarTm" style="width:130px;" onclick="serializarTallam(event)">
-
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTallamIngreso" id="nuevaTallamIngreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTallamInicial" id="nuevaTallamInicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoTm" id="nuevoPesoTm" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoTm" value="" id="serializarTm">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarTm" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTallam(event)">
+										<input type="hidden" name="serializadoTmR" value="" id="serializarTmR">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarTmR" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTallamR(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialTm" value="" id="serializadoStockInicialTm">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialTm" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTallam(event)">
+										<input type="hidden" name="serializadoStockTm" value="" id="serializadoStockTm">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockTm" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTallam(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla EST -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA EST</strong><br>";
+																							if (empty($comprobarest)){
+																							}else {
+																								echo $comprobarest;
+																								$comprobarest = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['tallaest']."<br>STOCK INICIAL: ".$key['tallaestD']."<br>PESO ACTUAL: ".$key['peso_Rest']."<br>PESO INICIAL: ".$key['peso_tallaest']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadTest)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTest</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadTest)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadTest;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_Rest'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_Rest'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="tallaestIngreso" id="tallaestIngreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_tallaest'] ?>" name="pesoTallaestSubida" id="pesoTallaest" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['tallaestD'] ?>" name="tallaestSubida" id="tallaest" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_Rest'] ?>" name="peso_Rest" id="tallaest" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTallaestIngreso" id="nuevaTallaestIngreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTallaestInicial" id="nuevaTallaestInicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoTest" id="nuevoPesoTest" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoTest" value="" id="serializarTest">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarTest" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTallaest(event)">
+										<input type="hidden" name="serializadoTestR" value="" id="serializarTestR">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarTestR" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTallaestR(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialTest" value="" id="serializadoStockInicialTest">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialTest" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTallaest(event)">
+										<input type="hidden" name="serializadoStockTest" value="" id="serializadoStockTest">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockTest" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTallaest(event)">
+									</div>
 								</label>
 							</div>
 						</div>
 
-						<div class="col-sm-2">
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar16)){
-																						echo 'de la talla 16 <br> Entraron:';
-																						if (empty($cantidadT16)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT16</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R16'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R16'];
+						<div class="col-sm-3">
+							<!-- Talla 8 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 8</strong><br>";
+																							if (empty($comprobar8)){
+																							}else {
+																								echo $comprobar8;
+																								$comprobar8 = "";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar16;
-																					}?>
-									<input type="text" required="" value="0" name="talla16Ingreso" id="talla16Ingreso" class="form-control">
+																							echo "<br>STOCK ACTUAL: ".$key['talla8']."<br>STOCK INICIAL: ".$key['talla8D']."<br>PESO ACTUAL: ".$key['peso_R8']."<br>PESO INICIAL: ".$key['peso_talla8']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT8)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT8</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT8)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT8;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R8'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R8'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla8Ingreso" id="talla8Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla8'] ?>" name="pesoTalla8Subida" id="pesoTalla8" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla8D'] ?>" name="talla8Subida" id="talla8" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R8'] ?>" name="peso_R8" id="talla8" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla8Ingreso" id="nuevaTalla8Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla8Inicial" id="nuevaTalla8Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT8" id="nuevoPesoT8" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT8" value="" id="serializarT8">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT8" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla8(event)">
+										<input type="hidden" name="serializadoT8R" value="" id="serializarT8R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT8R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla8R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT8" value="" id="serializadoStockInicialT8">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT8" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla8(event)">
+										<input type="hidden" name="serializadoStockT8" value="" id="serializadoStockT8">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT8" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla8(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla 16 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 16</strong><br>";
+																							if (empty($comprobar16)){
+																							}else {
+																								echo $comprobar16;
+																								$comprobar16 = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['talla16']."<br>STOCK INICIAL: ".$key['talla16D']."<br>PESO ACTUAL: ".$key['peso_R16']."<br>PESO INICIAL: ".$key['peso_talla16']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT16)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT16</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT16)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT16;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R16'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R16'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla16Ingreso" id="talla16Ingreso" class="form-control" placeholder="Peso">
 									<input type="hidden" required="" value="<?php echo $key['peso_talla16'] ?>" name="pesoTalla16Subida" id="pesoTalla16" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['talla16D'] ?>" name="talla16Subida" id="talla16" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['peso_R16'] ?>" name="peso_R16" id="talla16" class="form-control">
-									<input type="hidden" name="serializadoT16" value="" id="serializarT16">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT16" style="width:130px;" onclick="serializarTalla16(event)">
-
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla16Ingreso" id="nuevaTalla16Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla16Inicial" id="nuevaTalla16Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT16" id="nuevoPesoT16" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT16" value="" id="serializarT16">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT16" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla16(event)">
+										<input type="hidden" name="serializadoT16R" value="" id="serializarT16R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT16R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla16R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT16" value="" id="serializadoStockInicialT16">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT16" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla16(event)">
+										<input type="hidden" name="serializadoStockT16" value="" id="serializadoStockT16">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT16" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla16(event)">
+									</div>
 								</label>
 							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobar32)){
-																						echo 'de la talla 32 <br> Entraron:';
-																						if (empty($cantidadT32)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT32</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_R32'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_R32'];
+							<!-- Talla 28 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 28</strong><br>";
+																							if (empty($comprobar28)){
+																							}else {
+																								echo $comprobar28;
+																								$comprobar28 = "";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobar32;
-																					}?>
-									<input type="text" required="" value="0" name="talla32Ingreso" id="talla32Ingreso" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_talla32'] ?>" name="pesoTalla32Subida" id="pesoTalla32" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['talla32D'] ?>" name="talla32Subida" id="talla32" class="form-control">
-									<input type="hidden" required="" value="<?php echo $key['peso_R32'] ?>" name="peso_R32" id="talla32" class="form-control">
-									<input type="hidden" name="serializadoT32" value="" id="serializarT32">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarT32" style="width:130px;" onclick="serializarTalla32(event)">
-
+																							echo "<br>STOCK ACTUAL: ".$key['talla28']."<br>STOCK INICIAL: ".$key['talla28D']."<br>PESO ACTUAL: ".$key['peso_R28']."<br>PESO INICIAL: ".$key['peso_talla28']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT28)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT28</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT28)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT28;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R28'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R28'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla28Ingreso" id="talla28Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla28'] ?>" name="pesoTalla28Subida" id="pesoTalla28" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla28D'] ?>" name="talla28Subida" id="talla28" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R28'] ?>" name="peso_R28" id="talla28" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla28Ingreso" id="nuevaTalla28Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla28Inicial" id="nuevaTalla28Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT28" id="nuevoPesoT28" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT28" value="" id="serializarT28">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT28" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla28(event)">
+										<input type="hidden" name="serializadoT28R" value="" id="serializarT28R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT28R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla28R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT28" value="" id="serializadoStockInicialT28">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT28" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla28(event)">
+										<input type="hidden" name="serializadoStockT28" value="" id="serializadoStockT28">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT28" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla28(event)">
+									</div>
 								</label>
 							</div>
-							<div style="border-width: 1px;border-style: dashed;border-color: black;padding: 10px;margin:5px;">
-								<label style="color: gray; text-transform: uppercase;" for=""><?php if (empty($comprobarl)){
-																						echo 'de la talla l <br> Entraron:';
-																						if (empty($cantidadTl)){
-																							echo 0;
-																						}else {
-																							echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTl</strong>";
-																						}
-																						echo "<br>";
-																						echo 'Peso :';
-																						if (empty($key['peso_Rl'])) {
-																							echo 0;
-																							} else {
-																								echo $key['peso_Rl'];
+							<!-- Talla 36 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 36</strong><br>";
+																							if (empty($comprobar36)){
+																							}else {
+																								echo $comprobar36;
+																								$comprobar36 = "";
 																							}
-																							
-																						echo "<br>";
-
-																					}else {
-																						echo $comprobarl;
-																					}?>
-									<input type="text" required="" value="0" name="tallalIngreso" id="tallalIngreso" class="form-control">
+																							echo "<br>STOCK ACTUAL: ".$key['talla36']."<br>STOCK INICIAL: ".$key['talla36D']."<br>PESO ACTUAL: ".$key['peso_R36']."<br>PESO INICIAL: ".$key['peso_talla36']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT36)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT36</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT36)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT36;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R36'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R36'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla36Ingreso" id="talla36Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla36'] ?>" name="pesoTalla36Subida" id="pesoTalla36" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla36D'] ?>" name="talla36Subida" id="talla36" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R36'] ?>" name="peso_R36" id="talla36" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla36Ingreso" id="nuevaTalla36Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla36Inicial" id="nuevaTalla36Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT36" id="nuevoPesoT36" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT36" value="" id="serializarT36">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT36" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla36(event)">
+										<input type="hidden" name="serializadoT36R" value="" id="serializarT36R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT36R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla36R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT36" value="" id="serializadoStockInicialT36">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT36" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla36(event)">
+										<input type="hidden" name="serializadoStockT36" value="" id="serializadoStockT36">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT36" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla36(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla L -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA L</strong><br>";
+																							if (empty($comprobarl)){
+																							}else {
+																								echo $comprobarl;
+																								$comprobarl = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['tallal']."<br>STOCK INICIAL: ".$key['tallalD']."<br>PESO ACTUAL: ".$key['peso_Rl']."<br>PESO INICIAL: ".$key['peso_tallal']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadTl)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTl</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadTl)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadTl;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_Rl'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_Rl'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="tallalIngreso" id="tallalIngreso" class="form-control" placeholder="Peso">
 									<input type="hidden" required="" value="<?php echo $key['peso_tallal'] ?>" name="pesoTallalSubida" id="pesoTallal" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['tallalD'] ?>" name="tallalSubida" id="tallal" class="form-control">
 									<input type="hidden" required="" value="<?php echo $key['peso_Rl'] ?>" name="peso_Rl" id="tallal" class="form-control">
-									<input type="hidden" name="serializadoTl" value="" id="serializarTl">
-									<input type="butom" class="btn btn-success" value="Inicializar Peso" id="serializarTl" style="width:130px;" onclick="serializarTallal(event)">
-
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTallalIngreso" id="nuevaTallalIngreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTallalInicial" id="nuevaTallalInicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoTl" id="nuevoPesoTl" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoTl" value="" id="serializarTl">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarTl" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTallal(event)">
+										<input type="hidden" name="serializadoTlR" value="" id="serializarTlR">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarTlR" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTallalR(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialTl" value="" id="serializadoStockInicialTl">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialTl" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTallal(event)">
+										<input type="hidden" name="serializadoStockTl" value="" id="serializadoStockTl">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockTl" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTallal(event)">
+									</div>
 								</label>
 							</div>
+						</div>
+
+						<div class="col-sm-3">
+							<!-- Talla 10 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 10</strong><br>";
+																							if (empty($comprobar10)){
+																							}else {
+																								echo $comprobar10;
+																								$comprobar10 = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['talla10']."<br>STOCK INICIAL: ".$key['talla10D']."<br>PESO ACTUAL: ".$key['peso_R10']."<br>PESO INICIAL: ".$key['peso_talla10']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT10)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT10</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT10)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT10;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R10'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R10'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla10Ingreso" id="talla10Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla10'] ?>" name="pesoTalla10Subida" id="pesoTalla10" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla10D'] ?>" name="talla10Subida" id="talla10" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R10'] ?>" name="peso_R10" id="talla10" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla10Ingreso" id="nuevaTalla10Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla10Inicial" id="nuevaTalla10Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT10" id="nuevoPesoT10" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT10" value="" id="serializarT10">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT10" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla10(event)">
+										<input type="hidden" name="serializadoT10R" value="" id="serializarT10R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT10R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla10R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT10" value="" id="serializadoStockInicialT10">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT10" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla10(event)">
+										<input type="hidden" name="serializadoStockT10" value="" id="serializadoStockT10">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT10" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla10(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla 18 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																								echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 18</strong><br>";
+																								if (empty($comprobar18)){
+																								}else {
+																									echo $comprobar18;
+																									$comprobar18 = "";
+																								}
+																								echo "<br>STOCK ACTUAL: ".$key['talla18']."<br>STOCK INICIAL: ".$key['talla18D']."<br>PESO ACTUAL: ".$key['peso_R18']."<br>PESO INICIAL: ".$key['peso_talla18']."<br>-------------------------------------------------<br>";
+																								echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																								if (empty($cantidadT18)){
+																									echo 0;
+																								}else {
+																									echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT18</strong>";
+																								}
+																								echo "<br>";
+																								echo "Por actualizar:";
+																								if (empty($XcantidadT18)){
+																									echo 0;
+																								}else {
+																									echo $XcantidadT18;
+																								}
+																								echo "<br>";
+																								echo 'Nuevo Peso :';
+																								if (empty($key['peso_R18'])) {
+																									echo 0;
+																								} else {
+																										echo $key['peso_R18'];
+																								}
+																								echo "<br>";
+																						?>
+									<input type="text" required="" value="0" name="talla18Ingreso" id="talla18Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla18'] ?>" name="pesoTalla18Subida" id="pesoTalla18" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla18D'] ?>" name="talla18Subida" id="talla18" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R18'] ?>" name="peso_R18" id="talla18" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla18Ingreso" id="nuevaTalla18Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla18Inicial" id="nuevaTalla18Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT18" id="nuevoPesoT18" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT18" value="" id="serializarT18">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT18" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla18(event)">
+										<input type="hidden" name="serializadoT18R" value="" id="serializarT18R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT18R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla18R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT18" value="" id="serializadoStockInicialT18">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT18" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla18(event)">
+										<input type="hidden" name="serializadoStockT18" value="" id="serializadoStockT18">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT18" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla18(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla 30 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 30</strong><br>";
+																							if (empty($comprobar30)){
+																							}else {
+																								echo $comprobar30;
+																								$comprobar30 = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['talla30']."<br>STOCK INICIAL: ".$key['talla30D']."<br>PESO ACTUAL: ".$key['peso_R30']."<br>PESO INICIAL: ".$key['peso_talla30']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT30)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT30</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT30)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT30;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R30'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R30'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla30Ingreso" id="talla30Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla30'] ?>" name="pesoTalla30Subida" id="pesoTalla30" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla30D'] ?>" name="talla30Subida" id="talla30" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R30'] ?>" name="peso_R30" id="talla30" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla30Ingreso" id="nuevaTalla30Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla30Inicial" id="nuevaTalla30Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT30" id="nuevoPesoT30" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT30" value="" id="serializarT30">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT30" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla30(event)">
+										<input type="hidden" name="serializadoT30R" value="" id="serializarT30R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT30R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla30R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT30" value="" id="serializadoStockInicialT30">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT30" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla30(event)">
+										<input type="hidden" name="serializadoStockT30" value="" id="serializadoStockT30">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT30" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla30(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla 38 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 38</strong><br>";
+																							if (empty($comprobar38)){
+																							}else {
+																								echo $comprobar38;
+																								$comprobar38 = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['talla38']."<br>STOCK INICIAL: ".$key['talla38D']."<br>PESO ACTUAL: ".$key['peso_R38']."<br>PESO INICIAL: ".$key['peso_talla38']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT38)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT38</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT38)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT38;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R38'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R38'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla38Ingreso" id="talla38Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla38'] ?>" name="pesoTalla38Subida" id="pesoTalla38" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla38D'] ?>" name="talla38Subida" id="talla38" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R38'] ?>" name="peso_R38" id="talla38" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla38Ingreso" id="nuevaTalla38Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla38Inicial" id="nuevaTalla38Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT38" id="nuevoPesoT38" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT38" value="" id="serializarT38">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT38" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla38(event)">
+										<input type="hidden" name="serializadoT38R" value="" id="serializarT38R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT38R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla38R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT38" value="" id="serializadoStockInicialT38">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT38" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla38(event)">
+										<input type="hidden" name="serializadoStockT38" value="" id="serializadoStockT38">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT38" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla38(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla XL -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA XL</strong><br>";
+																							if (empty($comprobarxl)){
+																							}else {
+																								echo $comprobarxl;
+																								$comprobarxl = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['tallaxl']."<br>STOCK INICIAL: ".$key['tallaxlD']."<br>PESO ACTUAL: ".$key['peso_Rxl']."<br>PESO INICIAL: ".$key['peso_tallaxl']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadTxl)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTxl</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadTxl)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadTxl;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_Rxl'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_Rxl'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="tallaxlIngreso" id="tallaxlIngreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_tallaxl'] ?>" name="pesoTallaxlSubida" id="pesoTallaxl" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['tallaxlD'] ?>" name="tallaxlSubida" id="tallaxl" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_Rxl'] ?>" name="peso_Rxl" id="tallaxl" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTallaxlIngreso" id="nuevaTallaxlIngreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTallaxlInicial" id="nuevaTallaxlInicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoTxl" id="nuevoPesoTxl" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoTxl" value="" id="serializarTxl">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarTxl" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTallaxl(event)">
+										<input type="hidden" name="serializadoTxlR" value="" id="serializarTxlR">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarTxlR" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTallaxlR(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialTxl" value="" id="serializadoStockInicialTxl">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialTxl" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTallaxl(event)">
+										<input type="hidden" name="serializadoStockTxl" value="" id="serializadoStockTxl">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockTxl" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTallaxl(event)">
+									</div>
+								</label>
+							</div>
+						</div>
+
+						<div class="col-sm-3">
+							<!-- Talla 12 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 12</strong><br>";
+																							if (empty($comprobar12)){
+																							}else {
+																								echo $comprobar12;
+																								$comprobar12 = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['talla12']."<br>STOCK INICIAL: ".$key['talla12D']."<br>PESO ACTUAL: ".$key['peso_R12']."<br>PESO INICIAL: ".$key['peso_talla12']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT12)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT12</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT12)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT12;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R12'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R12'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla12Ingreso" id="talla12Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla12'] ?>" name="pesoTalla12Subida" id="pesoTalla12" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla12D'] ?>" name="talla12Subida" id="talla12" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R12'] ?>" name="peso_R12" id="talla12" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla12Ingreso" id="nuevaTalla12Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla12Inicial" id="nuevaTalla12Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT12" id="nuevoPesoT12" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT12" value="" id="serializarT12">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT12" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla12(event)">
+										<input type="hidden" name="serializadoT12R" value="" id="serializarT12R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT12R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla12R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT12" value="" id="serializadoStockInicialT12">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT12" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla12(event)">
+										<input type="hidden" name="serializadoStockT12" value="" id="serializadoStockT12">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT12" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla12(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla 20 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 20</strong><br>";
+																							if (empty($comprobar20)){
+																							}else {
+																								echo $comprobar20;
+																								$comprobar20 = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['talla20']."<br>STOCK INICIAL: ".$key['talla20D']."<br>PESO ACTUAL: ".$key['peso_R20']."<br>PESO INICIAL: ".$key['peso_talla20']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT20)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT20</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT20)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT20;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R20'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R20'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla20Ingreso" id="talla20Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla20'] ?>" name="pesoTalla20Subida" id="pesoTalla20" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla20D'] ?>" name="talla20Subida" id="talla20" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R20'] ?>" name="peso_R20" id="talla20" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla20Ingreso" id="nuevaTalla20Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla20Inicial" id="nuevaTalla20Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT20" id="nuevoPesoT20" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT20" value="" id="serializarT20">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT20" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla20(event)">
+										<input type="hidden" name="serializadoT20R" value="" id="serializarT20R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT20R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla20R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT20" value="" id="serializadoStockInicialT20">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT20" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla20(event)">
+										<input type="hidden" name="serializadoStockT20" value="" id="serializadoStockT20">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT20" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla20(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla 32 -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA 32</strong><br>";
+																							if (empty($comprobar32)){
+																							}else {
+																								echo $comprobar32;
+																								$comprobar32 = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['talla32']."<br>STOCK INICIAL: ".$key['talla32D']."<br>PESO ACTUAL: ".$key['peso_R32']."<br>PESO INICIAL: ".$key['peso_talla32']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadT32)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadT32</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadT32)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadT32;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_R32'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_R32'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="talla32Ingreso" id="talla32Ingreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_talla32'] ?>" name="pesoTalla32Subida" id="pesoTalla32" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['talla32D'] ?>" name="talla32Subida" id="talla32" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_R32'] ?>" name="peso_R32" id="talla32" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTalla32Ingreso" id="nuevaTalla32Ingreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTalla32Inicial" id="nuevaTalla32Inicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoT32" id="nuevoPesoT32" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoT32" value="" id="serializarT32">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarT32" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTalla32(event)">
+										<input type="hidden" name="serializadoT32R" value="" id="serializarT32R">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarT32R" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTalla32R(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialT32" value="" id="serializadoStockInicialT32">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialT32" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTalla32(event)">
+										<input type="hidden" name="serializadoStockT32" value="" id="serializadoStockT32">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockT32" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTalla32(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla S -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA S</strong><br>";
+																							if (empty($comprobars)){
+																							}else {
+																								echo $comprobars;
+																								$comprobars = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['tallas']."<br>STOCK INICIAL: ".$key['tallasD']."<br>PESO ACTUAL: ".$key['peso_Rs']."<br>PESO INICIAL: ".$key['peso_tallas']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadTs)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTs</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadTs)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadTs;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_Rs'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_Rs'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="tallasIngreso" id="tallasIngreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_tallas'] ?>" name="pesoTallasSubida" id="pesoTallas" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['tallasD'] ?>" name="tallasSubida" id="tallas" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_Rs'] ?>" name="peso_Rs" id="tallas" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTallasIngreso" id="nuevaTallasIngreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTallasInicial" id="nuevaTallasInicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoTs" id="nuevoPesoTs" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoTs" value="" id="serializarTs">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarTs" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTallas(event)">
+										<input type="hidden" name="serializadoTsR" value="" id="serializarTsR">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarTsR" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTallasR(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialTs" value="" id="serializadoStockInicialTs">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialTs" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTallas(event)">
+										<input type="hidden" name="serializadoStockTs" value="" id="serializadoStockTs">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockTs" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTallas(event)">
+									</div>
+								</label>
+							</div>
+							<!-- Talla U -->
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
+								<label style="color: gray; text-transform: uppercase;" for=""><?php 
+																							echo "<strong style='color: #D75A58;font-weight:900;font-size:20px;'>TALLA U</strong><br>";
+																							if (empty($comprobaru)){
+																							}else {
+																								echo $comprobaru;
+																								$comprobaru = "";
+																							}
+																							echo "<br>STOCK ACTUAL: ".$key['tallau']."<br>STOCK INICIAL: ".$key['tallauD']."<br>PESO ACTUAL: ".$key['peso_Ru']."<br>PESO INICIAL: ".$key['peso_tallau']."<br>-------------------------------------------------<br>";
+																							echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
+																							if (empty($cantidadTu)){
+																								echo 0;
+																							}else {
+																								echo "<strong style='color:green;font-weight:900;font-size:16px;'> $cantidadTu</strong>";
+																							}
+																							echo "<br>";
+																							echo "Por actualizar:";
+																							if (empty($XcantidadTu)){
+																								echo 0;
+																							}else {
+																								echo $XcantidadTu;
+																							}
+																							echo "<br>";
+																							echo 'Nuevo Peso :';
+																							if (empty($key['peso_Ru'])) {
+																								echo 0;
+																							} else {
+																									echo $key['peso_Ru'];
+																							}
+																							echo "<br>";
+																					?>
+									<input type="text" required="" value="0" name="tallauIngreso" id="tallauIngreso" class="form-control" placeholder="Peso">
+									<input type="hidden" required="" value="<?php echo $key['peso_tallau'] ?>" name="pesoTallauSubida" id="pesoTallau" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['tallauD'] ?>" name="tallauSubida" id="tallau" class="form-control">
+									<input type="hidden" required="" value="<?php echo $key['peso_Ru'] ?>" name="peso_Ru" id="tallau" class="form-control">
+									<br>
+									<?php
+										echo "<strong style='color: #D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevaTallauIngreso" id="nuevaTallauIngreso" class="form-control" placeholder="Nuevo stock actual">
+									<input type="text" value="" name="nuevaTallauInicial" id="nuevaTallauInicial" class="form-control" placeholder="Nuevo stock inicial">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR PESO</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR DIRECTAMENTE</strong><br>";
+									?>
+									<input type="text" value="" name="nuevoPesoTu" id="nuevoPesoTu" class="form-control" placeholder="Peso Nuevo">
+									<?php
+										echo "-------------------------------------------------<br>";
+										echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>INICIALIZAR</strong><br>";
+									?>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoTu" value="" id="serializarTu">
+										<input type="butom" class="btn btn-success" value="Peso Inicial" id="serializarTu" style="width:110px;background-color: #F67280;border-color: #F67280;" onclick="serializarTallau(event)">
+										<input type="hidden" name="serializadoTuR" value="" id="serializarTuR">
+										<input type="butom" class="btn btn-success" value="Peso Actual" id="serializarTuR" style="width:110px;background-color: #B4D47A;border-color: #B4D47A;" onclick="serializarTallauR(event)">
+									</div>
+									<div style="display: flex;align-items: center;justify-content: space-around;padding: 2.5px 0px;">
+										<input type="hidden" name="serializadoStockInicialTu" value="" id="serializadoStockInicialTu">
+										<input type="butom" class="btn btn-success" value="Stock Inicial" id="serializadoStockInicialTu" style="width:110px;background-color: #9CCACC;border-color: #9CCACC;" onclick="serializarStockInicialTallau(event)">
+										<input type="hidden" name="serializadoStockTu" value="" id="serializadoStockTu">
+										<input type="butom" class="btn btn-success" value="Stock Actual" id="serializadoStockTu" style="width:110px;background-color: #EDC58E;border-color: #EDC58E;" onclick="serializarStockTallau(event)">
+									</div>
+								</label>
+							</div>
+						</div>
+
+						<div class="col-sm-3">
+						</div>
+
+						<div class="col-sm-2">
 							<input type="hidden" name="accion" value="" id="botonEnviarF">
 							<input type="hidden" name="id_inventario" value="<?php echo $_GET['id_inventario']; ?>">
 							<input type="submit" class="btn btn-success" value="" id="enviarF" style="width:0px;heigth:0px;background-color: white; color: white;border-color:white;">
@@ -1983,153 +2684,614 @@ $clientes = new Clientes();
 	// 	$('#espacioTallas').slideToggle();
 	// });
 
-	// Peso talla 6
-		function serializarTalla6(event){
-			var i=document.getElementById("serializarT6").value = "serializarT6";
-			document.getElementById("enviarF").click();
-			var i=document.getElementById("serializarT6").value = "";
-		}
-	
-	// Peso talla 6 R
-		function serializarTalla6R(event){
-			var i=document.getElementById("serializarT6R").value = "serializarT6R";
-			document.getElementById("enviarF").click();
-			var i=document.getElementById("serializarT6R").value = "";
-		}
-	
-	// Stock inicial talla 6
-		function serializarStockInicialTalla6(event){
-			var i=document.getElementById("serializadoStockInicialT6").value = "serializadoStockInicialT6";
-			document.getElementById("enviarF").click();
-			var i=document.getElementById("serializarT6R").value = "";
-		}
+	// TALLA 6
+		// Peso talla 6
+			function serializarTalla6(event){
+				var i=document.getElementById("serializarT6").value = "serializarT6";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT6").value = "";
+			}
+		
+		// Peso talla 6 R
+			function serializarTalla6R(event){
+				var i=document.getElementById("serializarT6R").value = "serializarT6R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT6R").value = "";
+			}
+		
+		// Stock inicial talla 6
+			function serializarStockInicialTalla6(event){
+				var i=document.getElementById("serializadoStockInicialT6").value = "serializadoStockInicialT6";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT6").value = "";
+			}
 
-	// Stock actual talla 6
-	
-	function serializarStockTalla6(event){
-			var i=document.getElementById("serializadoStockT6").value = "serializadoStockT6";
-			document.getElementById("enviarF").click();
-			var i=document.getElementById("serializarT6R").value = "";
-		}
-	// talla 18
-		function serializarTalla18(event){
-			var i=document.getElementById("serializarT18").value = "serializarT18";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 6
+			function serializarStockTalla6(event){
+				var i=document.getElementById("serializadoStockT6").value = "serializadoStockT6";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT6").value = "";
+			}
 
-	// talla 34
-		function serializarTalla34(event){
-			var i=document.getElementById("serializarT34").value = "serializarT34";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 18
+		// Peso talla 18
+			function serializarTalla18(event){
+				var i=document.getElementById("serializarT18").value = "serializarT18";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT18").value = "";
+			}
+		
+		// Peso talla 18 R
+			function serializarTalla18R(event){
+				var i=document.getElementById("serializarT18R").value = "serializarT18R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT18R").value = "";
+			}
+		
+		// Stock inicial talla 18
+			function serializarStockInicialTalla18(event){
+				var i=document.getElementById("serializadoStockInicialT18").value = "serializadoStockInicialT18";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT18").value = "";
+			}
 
-	// talla XL
-		function serializarTallaxl(event){
-			var i=document.getElementById("serializarTxl").value = "serializarTxl";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 18
+			function serializarStockTalla18(event){
+				var i=document.getElementById("serializadoStockT18").value = "serializadoStockT18";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT18").value = "";
+			}
 
-	// talla 8
-		function serializarTalla8(event){
-			var i=document.getElementById("serializarT8").value = "serializarT8";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 34
+		// Peso talla 34
+			function serializarTalla34(event){
+				var i=document.getElementById("serializarT34").value = "serializarT34";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT34").value = "";
+			}
+		
+		// Peso talla 34 R
+			function serializarTalla34R(event){
+				var i=document.getElementById("serializarT34R").value = "serializarT34R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT34R").value = "";
+			}
+		
+		// Stock inicial talla 34
+			function serializarStockInicialTalla34(event){
+				var i=document.getElementById("serializadoStockInicialT34").value = "serializadoStockInicialT34";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT34").value = "";
+			}
 
-	// talla 20
-		function serializarTalla20(event){
-			var i=document.getElementById("serializarT20").value = "serializarT20";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 34
+			function serializarStockTalla34(event){
+				var i=document.getElementById("serializadoStockT34").value = "serializadoStockT34";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT34").value = "";
+			}
 
-	// talla 36
-		function serializarTalla36(event){
-			var i=document.getElementById("serializarT36").value = "serializarT36";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA XL
+		// Peso talla XL
+			function serializarTallaxl(event){
+				var i=document.getElementById("serializarTxl").value = "serializarTxl";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTxl").value = "";
+			}
+		
+		// Peso talla XL R
+			function serializarTallaxlR(event){
+				var i=document.getElementById("serializarTxlR").value = "serializarTxlR";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTxlR").value = "";
+			}
+		
+		// Stock inicial talla XL
+			function serializarStockInicialTallaxl(event){
+				var i=document.getElementById("serializadoStockInicialTxl").value = "serializadoStockInicialTxl";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialTxl").value = "";
+			}
 
-	// talla U
-		function serializarTallau(event){
-			var i=document.getElementById("serializarTu").value = "serializarTu";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla XL
+			function serializarStockTallaxl(event){
+				var i=document.getElementById("serializadoStockTxl").value = "serializadoStockTxl";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockTxl").value = "";
+			}
 
-	// talla 10
-		function serializarTalla10(event){
-			var i=document.getElementById("serializarT10").value = "serializarT10";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 8
+		// Peso talla 8
+			function serializarTalla8(event){
+				var i=document.getElementById("serializarT8").value = "serializarT8";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT8").value = "";
+			}
+		
+		// Peso talla 8 R
+			function serializarTalla8R(event){
+				var i=document.getElementById("serializarT8R").value = "serializarT8R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT8R").value = "";
+			}
+		
+		// Stock inicial talla 8
+			function serializarStockInicialTalla8(event){
+				var i=document.getElementById("serializadoStockInicialT8").value = "serializadoStockInicialT8";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT8").value = "";
+			}
 
-	// talla 26
-		function serializarTalla26(event){
-			var i=document.getElementById("serializarT26").value = "serializarT26";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 8
+			function serializarStockTalla8(event){
+				var i=document.getElementById("serializadoStockT8").value = "serializadoStockT8";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT8").value = "";
+			}
 
-	// talla 38
-		function serializarTalla38(event){
-			var i=document.getElementById("serializarT38").value = "serializarT38";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 20
+		// Peso talla 20
+			function serializarTalla20(event){
+				var i=document.getElementById("serializarT20").value = "serializarT20";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT20").value = "";
+			}
+		
+		// Peso talla 20 R
+			function serializarTalla20R(event){
+				var i=document.getElementById("serializarT20R").value = "serializarT20R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT20R").value = "";
+			}
+		
+		// Stock inicial talla 20
+			function serializarStockInicialTalla20(event){
+				var i=document.getElementById("serializadoStockInicialT20").value = "serializadoStockInicialT20";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT20").value = "";
+			}
 
-	// talla EST
-		function serializarTallaest(event){
-			var i=document.getElementById("serializarTest").value = "serializarTest";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 20
+			function serializarStockTalla20(event){
+				var i=document.getElementById("serializadoStockT20").value = "serializadoStockT20";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT20").value = "";
+			}
 
-	// talla 12
-		function serializarTalla12(event){
-			var i=document.getElementById("serializarT12").value = "serializarT12";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 36
+		// Peso talla 36
+			function serializarTalla36(event){
+				var i=document.getElementById("serializarT36").value = "serializarT36";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT36").value = "";
+			}
+		
+		// Peso talla 36 R
+			function serializarTalla36R(event){
+				var i=document.getElementById("serializarT36R").value = "serializarT36R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT36R").value = "";
+			}
+		
+		// Stock inicial talla 36
+			function serializarStockInicialTalla36(event){
+				var i=document.getElementById("serializadoStockInicialT36").value = "serializadoStockInicialT36";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT36").value = "";
+			}
 
-	// talla 28
-		function serializarTalla28(event){
-			var i=document.getElementById("serializarT28").value = "serializarT28";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 36
+			function serializarStockTalla36(event){
+				var i=document.getElementById("serializadoStockT36").value = "serializadoStockT36";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT36").value = "";
+			}
 
-	// talla S
-		function serializarTallas(event){
-			var i=document.getElementById("serializarTs").value = "serializarTs";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA U
+		// Peso talla U
+			function serializarTallau(event){
+				var i=document.getElementById("serializarTu").value = "serializarTu";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTu").value = "";
+			}
+		
+		// Peso talla U R
+			function serializarTallauR(event){
+				var i=document.getElementById("serializarTuR").value = "serializarTuR";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTuR").value = "";
+			}
+		
+		// Stock inicial talla U
+			function serializarStockInicialTallau(event){
+				var i=document.getElementById("serializadoStockInicialTu").value = "serializadoStockInicialTu";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialTu").value = "";
+			}
 
-	// talla 14
-		function serializarTalla14(event){
-			var i=document.getElementById("serializarT14").value = "serializarT14";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla U
+			function serializarStockTallau(event){
+				var i=document.getElementById("serializadoStockTu").value = "serializadoStockTu";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockTu").value = "";
+			}
 
-	// talla 30
-		function serializarTalla30(event){
-			var i=document.getElementById("serializarT30").value = "serializarT30";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 10
+		// Peso talla 10
+			function serializarTalla10(event){
+				var i=document.getElementById("serializarT10").value = "serializarT10";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT10").value = "";
+			}
+		
+		// Peso talla 10 R
+			function serializarTalla10R(event){
+				var i=document.getElementById("serializarT10R").value = "serializarT10R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT10R").value = "";
+			}
+		
+		// Stock inicial talla 10
+			function serializarStockInicialTalla10(event){
+				var i=document.getElementById("serializadoStockInicialT10").value = "serializadoStockInicialT10";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT10").value = "";
+			}
 
-	// talla M
-		function serializarTallam(event){
-			var i=document.getElementById("serializarTm").value = "serializarTm";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 10
+			function serializarStockTalla10(event){
+				var i=document.getElementById("serializadoStockT10").value = "serializadoStockT10";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT10").value = "";
+			}
 
-	// talla 16
-		function serializarTalla16(event){
-			var i=document.getElementById("serializarT16").value = "serializarT16";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 26
+		// Peso talla 26
+			function serializarTalla26(event){
+				var i=document.getElementById("serializarT26").value = "serializarT26";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT26").value = "";
+			}
+		
+		// Peso talla 26 R
+			function serializarTalla26R(event){
+				var i=document.getElementById("serializarT26R").value = "serializarT26R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT26R").value = "";
+			}
+		
+		// Stock inicial talla 26
+			function serializarStockInicialTalla26(event){
+				var i=document.getElementById("serializadoStockInicialT26").value = "serializadoStockInicialT26";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT26").value = "";
+			}
 
-	// talla 32
-		function serializarTalla32(event){
-			var i=document.getElementById("serializarT32").value = "serializarT32";
-			document.getElementById("enviarF").click();
-		}
+		// Stock actual talla 26
+			function serializarStockTalla26(event){
+				var i=document.getElementById("serializadoStockT26").value = "serializadoStockT26";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT26").value = "";
+			}
 
-	// talla l
-		function serializarTallal(event){
-			var i=document.getElementById("serializarTl").value = "serializarTl";
-			document.getElementById("enviarF").click();
-		}
+	// TALLA 38
+		// Peso talla 38
+			function serializarTalla38(event){
+				var i=document.getElementById("serializarT38").value = "serializarT38";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT38").value = "";
+			}
+		
+		// Peso talla 38 R
+			function serializarTalla38R(event){
+				var i=document.getElementById("serializarT38R").value = "serializarT38R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT38R").value = "";
+			}
+		
+		// Stock inicial talla 38
+			function serializarStockInicialTalla38(event){
+				var i=document.getElementById("serializadoStockInicialT38").value = "serializadoStockInicialT38";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT38").value = "";
+			}
+
+		// Stock actual talla 38
+			function serializarStockTalla38(event){
+				var i=document.getElementById("serializadoStockT38").value = "serializadoStockT38";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT38").value = "";
+			}
+
+	// TALLA EST
+		// Peso talla EST
+			function serializarTallaest(event){
+				var i=document.getElementById("serializarTest").value = "serializarTest";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTest").value = "";
+			}
+		
+		// Peso talla EST R
+			function serializarTallaestR(event){
+				var i=document.getElementById("serializarTestR").value = "serializarTestR";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTestR").value = "";
+			}
+		
+		// Stock inicial talla EST
+			function serializarStockInicialTallaest(event){
+				var i=document.getElementById("serializadoStockInicialTest").value = "serializadoStockInicialTest";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialTest").value = "";
+			}
+
+		// Stock actual talla EST
+			function serializarStockTallaest(event){
+				var i=document.getElementById("serializadoStockTest").value = "serializadoStockTest";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockTest").value = "";
+			}
+
+	// TALLA 12
+		// Peso talla 12
+			function serializarTalla12(event){
+				var i=document.getElementById("serializarT12").value = "serializarT12";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT12").value = "";
+			}
+		
+		// Peso talla 12 R
+			function serializarTalla12R(event){
+				var i=document.getElementById("serializarT12R").value = "serializarT12R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT12R").value = "";
+			}
+		
+		// Stock inicial talla 12
+			function serializarStockInicialTalla12(event){
+				var i=document.getElementById("serializadoStockInicialT12").value = "serializadoStockInicialT12";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT12").value = "";
+			}
+
+		// Stock actual talla 12
+			function serializarStockTalla12(event){
+				var i=document.getElementById("serializadoStockT12").value = "serializadoStockT12";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT12").value = "";
+			}
+
+	// TALLA 28
+		// Peso talla 28
+			function serializarTalla28(event){
+				var i=document.getElementById("serializarT28").value = "serializarT28";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT28").value = "";
+			}
+		
+		// Peso talla 28 R
+			function serializarTalla28R(event){
+				var i=document.getElementById("serializarT28R").value = "serializarT28R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT28R").value = "";
+			}
+		
+		// Stock inicial talla 28
+			function serializarStockInicialTalla28(event){
+				var i=document.getElementById("serializadoStockInicialT28").value = "serializadoStockInicialT28";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT28").value = "";
+			}
+
+		// Stock actual talla 28
+			function serializarStockTalla28(event){
+				var i=document.getElementById("serializadoStockT28").value = "serializadoStockT28";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT28").value = "";
+			}
+
+	// TALLA S
+		// Peso talla S
+			function serializarTallas(event){
+				var i=document.getElementById("serializarTs").value = "serializarTs";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTs").value = "";
+			}
+		
+		// Peso talla S R
+			function serializarTallasR(event){
+				var i=document.getElementById("serializarTsR").value = "serializarTsR";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTsR").value = "";
+			}
+		
+		// Stock inicial talla S
+			function serializarStockInicialTallas(event){
+				var i=document.getElementById("serializadoStockInicialTs").value = "serializadoStockInicialTs";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialTs").value = "";
+			}
+
+		// Stock actual talla S
+			function serializarStockTallas(event){
+				var i=document.getElementById("serializadoStockTs").value = "serializadoStockTs";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockTs").value = "";
+			}
+
+	// TALLA 14
+		// Peso talla 14
+			function serializarTalla14(event){
+				var i=document.getElementById("serializarT14").value = "serializarT14";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT14").value = "";
+			}
+		
+		// Peso talla 14 R
+			function serializarTalla14R(event){
+				var i=document.getElementById("serializarT14R").value = "serializarT14R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT14R").value = "";
+			}
+		
+		// Stock inicial talla 14
+			function serializarStockInicialTalla14(event){
+				var i=document.getElementById("serializadoStockInicialT14").value = "serializadoStockInicialT14";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT14").value = "";
+			}
+
+		// Stock actual talla 14
+			function serializarStockTalla14(event){
+				var i=document.getElementById("serializadoStockT14").value = "serializadoStockT14";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT14").value = "";
+			}
+
+	// TALLA 30
+		// Peso talla 30
+			function serializarTalla30(event){
+				var i=document.getElementById("serializarT30").value = "serializarT30";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT30").value = "";
+			}
+		
+		// Peso talla 30 R
+			function serializarTalla30R(event){
+				var i=document.getElementById("serializarT30R").value = "serializarT30R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT30R").value = "";
+			}
+		
+		// Stock inicial talla 30
+			function serializarStockInicialTalla30(event){
+				var i=document.getElementById("serializadoStockInicialT30").value = "serializadoStockInicialT30";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT30").value = "";
+			}
+
+		// Stock actual talla 30
+			function serializarStockTalla30(event){
+				var i=document.getElementById("serializadoStockT30").value = "serializadoStockT30";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT30").value = "";
+			}
+
+	// TALLA M
+		// Peso talla M
+			function serializarTallam(event){
+				var i=document.getElementById("serializarTm").value = "serializarTm";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTm").value = "";
+			}
+		
+		// Peso talla M R
+			function serializarTallamR(event){
+				var i=document.getElementById("serializarTmR").value = "serializarTmR";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTmR").value = "";
+			}
+		
+		// Stock inicial talla M
+			function serializarStockInicialTallam(event){
+				var i=document.getElementById("serializadoStockInicialTm").value = "serializadoStockInicialTm";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialTm").value = "";
+			}
+
+		// Stock actual talla M
+			function serializarStockTallam(event){
+				var i=document.getElementById("serializadoStockTm").value = "serializadoStockTm";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockTm").value = "";
+			}
+
+	// TALLA 16
+		// Peso talla 16
+			function serializarTalla16(event){
+				var i=document.getElementById("serializarT16").value = "serializarT16";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT16").value = "";
+			}
+		
+		// Peso talla 16 R
+			function serializarTalla16R(event){
+				var i=document.getElementById("serializarT16R").value = "serializarT16R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT16R").value = "";
+			}
+		
+		// Stock inicial talla 16
+			function serializarStockInicialTalla16(event){
+				var i=document.getElementById("serializadoStockInicialT16").value = "serializadoStockInicialT16";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT16").value = "";
+			}
+
+		// Stock actual talla 16
+			function serializarStockTalla16(event){
+				var i=document.getElementById("serializadoStockT16").value = "serializadoStockT16";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT16").value = "";
+			}
+
+	// TALLA 32
+		// Peso talla 32
+			function serializarTalla32(event){
+				var i=document.getElementById("serializarT32").value = "serializarT32";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT32").value = "";
+			}
+		
+		// Peso talla 32 R
+			function serializarTalla32R(event){
+				var i=document.getElementById("serializarT32R").value = "serializarT32R";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarT32R").value = "";
+			}
+		
+		// Stock inicial talla 32
+			function serializarStockInicialTalla32(event){
+				var i=document.getElementById("serializadoStockInicialT32").value = "serializadoStockInicialT32";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialT32").value = "";
+			}
+
+		// Stock actual talla 32
+			function serializarStockTalla32(event){
+				var i=document.getElementById("serializadoStockT32").value = "serializadoStockT32";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockT32").value = "";
+			}
+
+	// TALLA l
+		// Peso talla L
+			function serializarTallal(event){
+				var i=document.getElementById("serializarTl").value = "serializarTl";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTl").value = "";
+			}
+		
+		// Peso talla L R
+			function serializarTallalR(event){
+				var i=document.getElementById("serializarTlR").value = "serializarTlR";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializarTlR").value = "";
+			}
+		
+		// Stock inicial talla L
+			function serializarStockInicialTallal(event){
+				var i=document.getElementById("serializadoStockInicialTl").value = "serializadoStockInicialTl";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockInicialTl").value = "";
+			}
+
+		// Stock actual talla L
+			function serializarStockTallal(event){
+				var i=document.getElementById("serializadoStockTl").value = "serializadoStockTl";
+				document.getElementById("enviarF").click();
+				var i=document.getElementById("serializadoStockTl").value = "";
+			}
 
 	// Funciones de teclado
 		function onKeyDownHandler(event) {

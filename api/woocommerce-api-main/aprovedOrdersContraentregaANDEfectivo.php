@@ -17,7 +17,7 @@ while ($stockPrimaryDB =mysqli_fetch_array($query1)){
 
     if($stockPrimaryDB[8] == 'APROBO CLIENTE'){
 
-        $sql="UPDATE ventas_globales SET estado = 'APROBO CARTERA', fecha_cartera_aprobo = '".$fecha."' WHERE id_venta ='$stockPrimaryDB[0]'";
+        $sql="UPDATE ventas_globales SET estado = 'APROBO CARTERA', fecha_cartera_aprobo = '".$fecha."', cartera_aprobo = 'SI' WHERE id_venta ='$stockPrimaryDB[0]'";
         $query=mysqli_query($con,$sql);
 
         if($query){
