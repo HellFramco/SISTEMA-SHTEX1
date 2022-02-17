@@ -20,7 +20,7 @@ $clientes = new Clientes();
 			<?php
 			foreach ($inventarios->verInventarioId($_GET['id_inventario']) as $keyV) {
 			?>		
-				<h4>Reinventariado version 2.0 </h4>
+				<h4>Reinventariado version 2.5 </h4>
 				<br>
 				<legend>Reinventariando referencia: <?php echo $keyV['referencia']; ?><br><?php echo $keyV['descripcion']; ?><br>color: <?php echo $productos->color_hexa($keyV['color']); ?></legend>
 			<?php 
@@ -740,7 +740,7 @@ $clientes = new Clientes();
 
 						if($pesoTalla6 == NULL || $pesoTalla6 == '' || $talla6 == NULL || $talla6 == ''){
 
-							$comprobar6 = "<strong style='color:crimson;'>No se puede actualizar</strong>";
+							$comprobar6 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
 
 						}else{
 
@@ -760,6 +760,21 @@ $clientes = new Clientes();
 					// Talla 8
 						$pesoTotalT8 = (double) @$_POST['peso_R8'];
 						$pesoXsumarT8 = $pesoTotalT8 + (double) @$_POST['talla8Ingreso'];
+						
+						$pesoTalla8 = (double) @$_POST['pesoTalla8Subida'];
+						$talla8 = (double) @$_POST['talla8Subida'];
+
+						if($pesoTalla8 == NULL || $pesoTalla8 == '' || $talla8 == NULL || $talla8 == ''){
+
+							$comprobar8 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT8 = $pesoTalla8 / $talla8;
+							$XcantidadT8 = $pesoXsumarT8 / $pesoUnitarioT8;
+							$XcantidadT8 = round($XcantidadT8);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -767,10 +782,26 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+						
 
 					// Talla 10
 						$pesoTotalT10 = (double) @$_POST['peso_R10'];
 						$pesoXsumarT10 = $pesoTotalT10 + (double) @$_POST['talla10Ingreso'];
+						
+						$pesoTalla10 = (double) @$_POST['pesoTalla10Subida'];
+						$talla10 = (double) @$_POST['talla10Subida'];
+
+						if($pesoTalla10 == NULL || $pesoTalla10 == '' || $talla10 == NULL || $talla10 == ''){
+
+							$comprobar10 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT10 = $pesoTalla10 / $talla10;
+							$XcantidadT10 = $pesoXsumarT10 / $pesoUnitarioT10;
+							$XcantidadT10 = round($XcantidadT10);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -778,10 +809,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 12
 						$pesoTotalT12 = (double) @$_POST['peso_R12'];
 						$pesoXsumarT12 = $pesoTotalT12 + (double) @$_POST['talla12Ingreso'];
+						
+						$pesoTalla12 = (double) @$_POST['pesoTalla12Subida'];
+						$talla12 = (double) @$_POST['talla12Subida'];
+
+						if($pesoTalla12 == NULL || $pesoTalla12 == '' || $talla12 == NULL || $talla12 == ''){
+
+							$comprobar12 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT12 = $pesoTalla12 / $talla12;
+							$XcantidadT12 = $pesoXsumarT12 / $pesoUnitarioT12;
+							$XcantidadT12 = round($XcantidadT12);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -789,10 +835,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 14
 						$pesoTotalT14 = (double) @$_POST['peso_R14'];
 						$pesoXsumarT14 = $pesoTotalT14 + (double) @$_POST['talla14Ingreso'];
+						
+						$pesoTalla14 = (double) @$_POST['pesoTalla14Subida'];
+						$talla14 = (double) @$_POST['talla14Subida'];
+
+						if($pesoTalla14 == NULL || $pesoTalla14 == '' || $talla14 == NULL || $talla14 == ''){
+
+							$comprobar14 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT14 = $pesoTalla14 / $talla14;
+							$XcantidadT14 = $pesoXsumarT14 / $pesoUnitarioT14;
+							$XcantidadT14 = round($XcantidadT14);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -800,10 +861,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 16
 						$pesoTotalT16 = (double) @$_POST['peso_R16'];
 						$pesoXsumarT16 = $pesoTotalT16 + (double) @$_POST['talla16Ingreso'];
+						
+						$pesoTalla16 = (double) @$_POST['pesoTalla16Subida'];
+						$talla16 = (double) @$_POST['talla16Subida'];
+
+						if($pesoTalla16 == NULL || $pesoTalla16 == '' || $talla16 == NULL || $talla16 == ''){
+
+							$comprobar16 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT16 = $pesoTalla16 / $talla16;
+							$XcantidadT16 = $pesoXsumarT16 / $pesoUnitarioT16;
+							$XcantidadT16 = round($XcantidadT16);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -811,10 +887,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 18
 						$pesoTotalT18 = (double) @$_POST['peso_R18'];
 						$pesoXsumarT18 = $pesoTotalT18 + (double) @$_POST['talla18Ingreso'];
+						
+						$pesoTalla18 = (double) @$_POST['pesoTalla18Subida'];
+						$talla18 = (double) @$_POST['talla18Subida'];
+
+						if($pesoTalla18 == NULL || $pesoTalla18 == '' || $talla18 == NULL || $talla18 == ''){
+
+							$comprobar18 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT18 = $pesoTalla18 / $talla18;
+							$XcantidadT18 = $pesoXsumarT18 / $pesoUnitarioT18;
+							$XcantidadT18 = round($XcantidadT18);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -822,10 +913,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 20
 						$pesoTotalT20 = (double) @$_POST['peso_R20'];
 						$pesoXsumarT20 = $pesoTotalT20 + (double) @$_POST['talla20Ingreso'];
+						
+						$pesoTalla20 = (double) @$_POST['pesoTalla20Subida'];
+						$talla20 = (double) @$_POST['talla20Subida'];
+
+						if($pesoTalla20 == NULL || $pesoTalla20 == '' || $talla20 == NULL || $talla20 == ''){
+
+							$comprobar20 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT20 = $pesoTalla20 / $talla20;
+							$XcantidadT20 = $pesoXsumarT20 / $pesoUnitarioT20;
+							$XcantidadT20 = round($XcantidadT20);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -833,10 +939,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 26
 						$pesoTotalT26 = (double) @$_POST['peso_R26'];
 						$pesoXsumarT26 = $pesoTotalT26 + (double) @$_POST['talla26Ingreso'];
+						
+						$pesoTalla26 = (double) @$_POST['pesoTalla26Subida'];
+						$talla26 = (double) @$_POST['talla26Subida'];
+
+						if($pesoTalla26 == NULL || $pesoTalla26 == '' || $talla26 == NULL || $talla26 == ''){
+
+							$comprobar26 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT26 = $pesoTalla26 / $talla26;
+							$XcantidadT26 = $pesoXsumarT26 / $pesoUnitarioT26;
+							$XcantidadT26 = round($XcantidadT26);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -844,10 +965,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 28
 						$pesoTotalT28 = (double) @$_POST['peso_R28'];
 						$pesoXsumarT28 = $pesoTotalT28 + (double) @$_POST['talla28Ingreso'];
+						
+						$pesoTalla28 = (double) @$_POST['pesoTalla28Subida'];
+						$talla28 = (double) @$_POST['talla28Subida'];
+
+						if($pesoTalla28 == NULL || $pesoTalla28 == '' || $talla28 == NULL || $talla28 == ''){
+
+							$comprobar28 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT28 = $pesoTalla28 / $talla28;
+							$XcantidadT28 = $pesoXsumarT28 / $pesoUnitarioT28;
+							$XcantidadT28 = round($XcantidadT28);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -855,10 +991,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 30
 						$pesoTotalT30 = (double) @$_POST['peso_R30'];
 						$pesoXsumarT30 = $pesoTotalT30 + (double) @$_POST['talla30Ingreso'];
+						
+						$pesoTalla30 = (double) @$_POST['pesoTalla30Subida'];
+						$talla30 = (double) @$_POST['talla30Subida'];
+
+						if($pesoTalla30 == NULL || $pesoTalla30 == '' || $talla30 == NULL || $talla30 == ''){
+
+							$comprobar30 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT30 = $pesoTalla30 / $talla30;
+							$XcantidadT30 = $pesoXsumarT30 / $pesoUnitarioT30;
+							$XcantidadT30 = round($XcantidadT30);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -866,10 +1017,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 32
 						$pesoTotalT32 = (double) @$_POST['peso_R32'];
 						$pesoXsumarT32 = $pesoTotalT32 + (double) @$_POST['talla32Ingreso'];
+						
+						$pesoTalla32 = (double) @$_POST['pesoTalla32Subida'];
+						$talla32 = (double) @$_POST['talla32Subida'];
+
+						if($pesoTalla32 == NULL || $pesoTalla32 == '' || $talla32 == NULL || $talla32 == ''){
+
+							$comprobar32 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT32 = $pesoTalla32 / $talla32;
+							$XcantidadT32 = $pesoXsumarT32 / $pesoUnitarioT32;
+							$XcantidadT32 = round($XcantidadT32);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -877,10 +1043,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 34
 						$pesoTotalT34 = (double) @$_POST['peso_R34'];
 						$pesoXsumarT34 = $pesoTotalT34 + (double) @$_POST['talla34Ingreso'];
+						
+						$pesoTalla34 = (double) @$_POST['pesoTalla34Subida'];
+						$talla34 = (double) @$_POST['talla34Subida'];
+
+						if($pesoTalla34 == NULL || $pesoTalla34 == '' || $talla34 == NULL || $talla34 == ''){
+
+							$comprobar34 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT34 = $pesoTalla34 / $talla34;
+							$XcantidadT34 = $pesoXsumarT34 / $pesoUnitarioT34;
+							$XcantidadT34 = round($XcantidadT34);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -888,10 +1069,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 36
 						$pesoTotalT36 = (double) @$_POST['peso_R36'];
 						$pesoXsumarT36 = $pesoTotalT36 + (double) @$_POST['talla36Ingreso'];
+						
+						$pesoTalla36 = (double) @$_POST['pesoTalla36Subida'];
+						$talla36 = (double) @$_POST['talla36Subida'];
+
+						if($pesoTalla36 == NULL || $pesoTalla36 == '' || $talla36 == NULL || $talla36 == ''){
+
+							$comprobar36 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT36 = $pesoTalla36 / $talla36;
+							$XcantidadT36 = $pesoXsumarT36 / $pesoUnitarioT36;
+							$XcantidadT36 = round($XcantidadT36);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -899,10 +1095,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla 38
 						$pesoTotalT38 = (double) @$_POST['peso_R38'];
 						$pesoXsumarT38 = $pesoTotalT38 + (double) @$_POST['talla38Ingreso'];
+						
+						$pesoTalla38 = (double) @$_POST['pesoTalla38Subida'];
+						$talla38 = (double) @$_POST['talla38Subida'];
+
+						if($pesoTalla38 == NULL || $pesoTalla38 == '' || $talla38 == NULL || $talla38 == ''){
+
+							$comprobar38 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioT38 = $pesoTalla38 / $talla38;
+							$XcantidadT38 = $pesoXsumarT38 / $pesoUnitarioT38;
+							$XcantidadT38 = round($XcantidadT38);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -910,10 +1121,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla s
 						$pesoTotalTs = (double) @$_POST['peso_Rs'];
 						$pesoXsumarTs = $pesoTotalTs + (double) @$_POST['tallasIngreso'];
+						
+						$pesoTallas = (double) @$_POST['pesoTallasSubida'];
+						$tallas = (double) @$_POST['tallasSubida'];
+
+						if($pesoTallas == NULL || $pesoTallas == '' || $tallas == NULL || $tallas == ''){
+
+							$comprobars = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioTs = $pesoTallas / $tallas;
+							$XcantidadTs = $pesoXsumarTs / $pesoUnitarioTs;
+							$XcantidadTs = round($XcantidadTs);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -921,10 +1147,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla m
 						$pesoTotalTm = (double) @$_POST['peso_Rm'];
 						$pesoXsumarTm = $pesoTotalTm + (double) @$_POST['tallamIngreso'];
+						
+						$pesoTallam = (double) @$_POST['pesoTallamSubida'];
+						$tallam = (double) @$_POST['tallamSubida'];
+
+						if($pesoTallam == NULL || $pesoTallam == '' || $tallam == NULL || $tallam == ''){
+
+							$comprobarm = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioTm = $pesoTallam / $tallam;
+							$XcantidadTm = $pesoXsumarTm / $pesoUnitarioTm;
+							$XcantidadTm = round($XcantidadTm);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -932,10 +1173,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla l
 						$pesoTotalTl = (double) @$_POST['peso_Rl'];
 						$pesoXsumarTl = $pesoTotalTl + (double) @$_POST['tallalIngreso'];
+						
+						$pesoTallal = (double) @$_POST['pesoTallalSubida'];
+						$tallal = (double) @$_POST['tallalSubida'];
+
+						if($pesoTallal == NULL || $pesoTallal == '' || $tallal == NULL || $tallal == ''){
+
+							$comprobarl = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioTl = $pesoTallal / $tallal;
+							$XcantidadTl = $pesoXsumarTl / $pesoUnitarioTl;
+							$XcantidadTl = round($XcantidadTl);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -943,10 +1199,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla xl
 						$pesoTotalTxl = (double) @$_POST['peso_Rxl'];
 						$pesoXsumarTxl = $pesoTotalTxl + (double) @$_POST['tallaxlIngreso'];
+						
+						$pesoTallaxl = (double) @$_POST['pesoTallaxlSubida'];
+						$tallaxl = (double) @$_POST['tallaxlSubida'];
+
+						if($pesoTallaxl == NULL || $pesoTallaxl == '' || $tallaxl == NULL || $tallaxl == ''){
+
+							$comprobarxl = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioTxl = $pesoTallaxl / $tallaxl;
+							$XcantidadTxl = $pesoXsumarTxl / $pesoUnitarioTxl;
+							$XcantidadTxl = round($XcantidadTxl);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -954,10 +1225,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla u
 						$pesoTotalTu = (double) @$_POST['peso_Ru'];
 						$pesoXsumarTu = $pesoTotalTu + (double) @$_POST['tallauIngreso'];
+						
+						$pesoTallau = (double) @$_POST['pesoTallauSubida'];
+						$tallau = (double) @$_POST['tallauSubida'];
+
+						if($pesoTallau == NULL || $pesoTallau == '' || $tallau == NULL || $tallau == ''){
+
+							$comprobaru = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioTu = $pesoTallau / $tallau;
+							$XcantidadTu = $pesoXsumarTu / $pesoUnitarioTu;
+							$XcantidadTu = round($XcantidadTu);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -965,10 +1251,25 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
-
+						
 					// Talla est
 						$pesoTotalTest = (double) @$_POST['peso_Rest'];
 						$pesoXsumarTest = $pesoTotalTest + (double) @$_POST['tallaestIngreso'];
+						
+						$pesoTallaest = (double) @$_POST['pesoTallaestSubida'];
+						$tallaest = (double) @$_POST['tallaestSubida'];
+
+						if($pesoTallaest == NULL || $pesoTallaest == '' || $tallaest == NULL || $tallaest == ''){
+
+							$comprobarest = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
+
+						}else{
+
+							$pesoUnitarioTest = $pesoTallaest / $tallaest;
+							$XcantidadTest = $pesoXsumarTest / $pesoUnitarioTest;
+							$XcantidadTest = round($XcantidadTest);
+
+						}
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -976,29 +1277,577 @@ $clientes = new Clientes();
 							$modules = $conexion->query($consulta);
 							if($modules){
 							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+						
 					// fin
 				}elseif(@$_POST['accion'] == 'actualizarDirectoSTOCK'){
-					if(@$_POST['nuevaTalla6Ingreso'] != ''){
-						$nuevaCantidadT6 = @$_POST['nuevaTalla6Ingreso'];
-						require_once("../../modelo/db.php");
-								$conexion = new Conexion();
-								$consulta = "UPDATE inventarios_productos SET talla6 = '$nuevaCantidadT6' WHERE id_inventario =".$_GET['id_inventario'];
-								$modules = $conexion->query($consulta);
-					}
+
+					// Talla 6
+						if(@$_POST['nuevaTalla6Ingreso'] != ''){
+							$nuevaCantidadT6 = @$_POST['nuevaTalla6Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla6 = '$nuevaCantidadT6' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 8
+						if(@$_POST['nuevaTalla8Ingreso'] != ''){
+							$nuevaCantidadT8 = @$_POST['nuevaTalla8Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla8 = '$nuevaCantidadT8' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 10
+						if(@$_POST['nuevaTalla10Ingreso'] != ''){
+							$nuevaCantidadT10 = @$_POST['nuevaTalla10Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla10 = '$nuevaCantidadT10' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 12
+						if(@$_POST['nuevaTalla12Ingreso'] != ''){
+							$nuevaCantidadT12 = @$_POST['nuevaTalla12Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla12 = '$nuevaCantidadT12' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 14
+						if(@$_POST['nuevaTalla14Ingreso'] != ''){
+							$nuevaCantidadT14 = @$_POST['nuevaTalla14Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla14 = '$nuevaCantidadT14' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 16
+						if(@$_POST['nuevaTalla16Ingreso'] != ''){
+							$nuevaCantidadT16 = @$_POST['nuevaTalla16Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla16 = '$nuevaCantidadT16' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 18
+						if(@$_POST['nuevaTalla18Ingreso'] != ''){
+							$nuevaCantidadT18 = @$_POST['nuevaTalla18Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla18 = '$nuevaCantidadT18' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 20
+						if(@$_POST['nuevaTalla20Ingreso'] != ''){
+							$nuevaCantidadT20 = @$_POST['nuevaTalla20Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla20 = '$nuevaCantidadT20' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 26
+						if(@$_POST['nuevaTalla26Ingreso'] != ''){
+							$nuevaCantidadT26 = @$_POST['nuevaTalla26Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla26 = '$nuevaCantidadT26' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 28
+						if(@$_POST['nuevaTalla28Ingreso'] != ''){
+							$nuevaCantidadT28 = @$_POST['nuevaTalla28Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla28 = '$nuevaCantidadT28' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 30
+						if(@$_POST['nuevaTalla30Ingreso'] != ''){
+							$nuevaCantidadT30 = @$_POST['nuevaTalla30Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla30 = '$nuevaCantidadT30' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 32
+						if(@$_POST['nuevaTalla32Ingreso'] != ''){
+							$nuevaCantidadT32 = @$_POST['nuevaTalla32Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla32 = '$nuevaCantidadT32' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 34
+						if(@$_POST['nuevaTalla34Ingreso'] != ''){
+							$nuevaCantidadT34 = @$_POST['nuevaTalla34Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla34 = '$nuevaCantidadT34' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 36
+						if(@$_POST['nuevaTalla36Ingreso'] != ''){
+							$nuevaCantidadT36 = @$_POST['nuevaTalla36Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla36 = '$nuevaCantidadT36' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla 38
+						if(@$_POST['nuevaTalla38Ingreso'] != ''){
+							$nuevaCantidadT38 = @$_POST['nuevaTalla38Ingreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET talla38 = '$nuevaCantidadT38' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla S
+						if(@$_POST['nuevaTallasIngreso'] != ''){
+							$nuevaCantidadTs = @$_POST['nuevaTallasIngreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET tallas = '$nuevaCantidadTs' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla M
+						if(@$_POST['nuevaTallamIngreso'] != ''){
+							$nuevaCantidadTm = @$_POST['nuevaTallamIngreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET tallam = '$nuevaCantidadTm' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla L
+						if(@$_POST['nuevaTallalIngreso'] != ''){
+							$nuevaCantidadTl = @$_POST['nuevaTallalIngreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET tallal = '$nuevaCantidadTl' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla XL
+						if(@$_POST['nuevaTallaxlIngreso'] != ''){
+							$nuevaCantidadTxl = @$_POST['nuevaTallaxlIngreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET tallaxl = '$nuevaCantidadTxl' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla U
+						if(@$_POST['nuevaTallauIngreso'] != ''){
+							$nuevaCantidadTu = @$_POST['nuevaTallauIngreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET tallau = '$nuevaCantidadTu' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// Talla EST
+						if(@$_POST['nuevaTallaestIngreso'] != ''){
+							$nuevaCantidadTest = @$_POST['nuevaTallaestIngreso'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET tallaest = '$nuevaCantidadTest' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
 				}elseif(@$_POST['accion'] == 'actualizarDirectoPeso'){
-					if(@$_POST['nuevoPesoT6'] != ''){
-						$nuevaCantidadT6 = @$_POST['nuevoPesoT6'];
-						require_once("../../modelo/db.php");
-								$conexion = new Conexion();
-								$consulta = "UPDATE inventarios_productos SET peso_talla6 = '$nuevaCantidadT6' WHERE id_inventario =".$_GET['id_inventario'];
-								$modules = $conexion->query($consulta);
-					}
+
+					// talla 6
+						if(@$_POST['nuevoPesoT6'] != ''){
+							$nuevaCantidadT6 = @$_POST['nuevoPesoT6'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla6 = '$nuevaCantidadT6' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 8
+						if(@$_POST['nuevoPesoT8'] != ''){
+							$nuevaCantidadT8 = @$_POST['nuevoPesoT8'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla8 = '$nuevaCantidadT8' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 10
+						if(@$_POST['nuevoPesoT10'] != ''){
+							$nuevaCantidadT10 = @$_POST['nuevoPesoT10'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla10 = '$nuevaCantidadT10' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 12
+						if(@$_POST['nuevoPesoT12'] != ''){
+							$nuevaCantidadT12 = @$_POST['nuevoPesoT12'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla12 = '$nuevaCantidadT12' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 14
+						if(@$_POST['nuevoPesoT14'] != ''){
+							$nuevaCantidadT14 = @$_POST['nuevoPesoT14'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla14 = '$nuevaCantidadT14' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 16
+						if(@$_POST['nuevoPesoT16'] != ''){
+							$nuevaCantidadT16 = @$_POST['nuevoPesoT16'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla16 = '$nuevaCantidadT16' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 18
+						if(@$_POST['nuevoPesoT18'] != ''){
+							$nuevaCantidadT18 = @$_POST['nuevoPesoT18'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla18 = '$nuevaCantidadT18' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 20
+						if(@$_POST['nuevoPesoT20'] != ''){
+							$nuevaCantidadT20 = @$_POST['nuevoPesoT20'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla20 = '$nuevaCantidadT20' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 26
+						if(@$_POST['nuevoPesoT26'] != ''){
+							$nuevaCantidadT26 = @$_POST['nuevoPesoT26'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla26 = '$nuevaCantidadT26' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 28
+						if(@$_POST['nuevoPesoT28'] != ''){
+							$nuevaCantidadT28 = @$_POST['nuevoPesoT28'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla28 = '$nuevaCantidadT28' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 30
+						if(@$_POST['nuevoPesoT30'] != ''){
+							$nuevaCantidadT30 = @$_POST['nuevoPesoT30'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla30 = '$nuevaCantidadT30' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 32
+						if(@$_POST['nuevoPesoT32'] != ''){
+							$nuevaCantidadT32 = @$_POST['nuevoPesoT32'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla32 = '$nuevaCantidadT32' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 34
+						if(@$_POST['nuevoPesoT34'] != ''){
+							$nuevaCantidadT34 = @$_POST['nuevoPesoT34'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla34 = '$nuevaCantidadT34' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 36
+						if(@$_POST['nuevoPesoT36'] != ''){
+							$nuevaCantidadT36 = @$_POST['nuevoPesoT36'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla36 = '$nuevaCantidadT36' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla 38
+						if(@$_POST['nuevoPesoT38'] != ''){
+							$nuevaCantidadT38 = @$_POST['nuevoPesoT38'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_talla38 = '$nuevaCantidadT38' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla S
+						if(@$_POST['nuevoPesoTs'] != ''){
+							$nuevaCantidadTs = @$_POST['nuevoPesoTs'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_tallas = '$nuevaCantidadTs' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla M
+						if(@$_POST['nuevoPesoTm'] != ''){
+							$nuevaCantidadTm = @$_POST['nuevoPesoTm'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_tallam = '$nuevaCantidadTm' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla L
+						if(@$_POST['nuevoPesoTl'] != ''){
+							$nuevaCantidadTl = @$_POST['nuevoPesoTl'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_tallal = '$nuevaCantidadTl' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla XL
+						if(@$_POST['nuevoPesoTxl'] != ''){
+							$nuevaCantidadTxl = @$_POST['nuevoPesoTxl'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_tallaxl = '$nuevaCantidadTxl' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla U
+						if(@$_POST['nuevoPesoTu'] != ''){
+							$nuevaCantidadTu = @$_POST['nuevoPesoTu'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_tallau = '$nuevaCantidadTu' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
+
+					// talla EST
+						if(@$_POST['nuevoPesoTest'] != ''){
+							$nuevaCantidadTest= @$_POST['nuevoPesoTest'];
+							require_once("../../modelo/db.php");
+									$conexion = new Conexion();
+									$consulta = "UPDATE inventarios_productos SET peso_tallaest = '$nuevaCantidadTest' WHERE id_inventario =".$_GET['id_inventario'];
+									$modules = $conexion->query($consulta);
+						}
 				}elseif(@$_POST['accion'] == 'actualizarDirectoSTOCKinicial'){
+
+					// talla 6
 					if(@$_POST['nuevaTalla6Inicial'] != ''){
 						$nuevaCantidadT6Inicial = @$_POST['nuevaTalla6Inicial'];
 						require_once("../../modelo/db.php");
 								$conexion = new Conexion();
 								$consulta = "UPDATE inventarios_productos SET talla6D = '$nuevaCantidadT6Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 8
+					if(@$_POST['nuevaTalla8Inicial'] != ''){
+						$nuevaCantidadT8Inicial = @$_POST['nuevaTalla8Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla8D = '$nuevaCantidadT8Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 10
+					if(@$_POST['nuevaTalla10Inicial'] != ''){
+						$nuevaCantidadT10Inicial = @$_POST['nuevaTalla10Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla10D = '$nuevaCantidadT10Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 12
+					if(@$_POST['nuevaTalla12Inicial'] != ''){
+						$nuevaCantidadT12Inicial = @$_POST['nuevaTalla12Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla12D = '$nuevaCantidadT12Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 14
+					if(@$_POST['nuevaTalla14Inicial'] != ''){
+						$nuevaCantidadT14Inicial = @$_POST['nuevaTalla14Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla14D = '$nuevaCantidadT14Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 16
+					if(@$_POST['nuevaTalla16Inicial'] != ''){
+						$nuevaCantidadT16Inicial = @$_POST['nuevaTalla16Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla16D = '$nuevaCantidadT16Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 18
+					if(@$_POST['nuevaTalla18Inicial'] != ''){
+						$nuevaCantidadT18Inicial = @$_POST['nuevaTalla18Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla18D = '$nuevaCantidadT18Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 20
+					if(@$_POST['nuevaTalla20Inicial'] != ''){
+						$nuevaCantidadT20Inicial = @$_POST['nuevaTalla20Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla20D = '$nuevaCantidadT20Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 26
+					if(@$_POST['nuevaTalla26Inicial'] != ''){
+						$nuevaCantidadT26Inicial = @$_POST['nuevaTalla26Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla26D = '$nuevaCantidadT26Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 28
+					if(@$_POST['nuevaTalla28Inicial'] != ''){
+						$nuevaCantidadT28Inicial = @$_POST['nuevaTalla28Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla28D = '$nuevaCantidadT28Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 30
+					if(@$_POST['nuevaTalla30Inicial'] != ''){
+						$nuevaCantidadT30Inicial = @$_POST['nuevaTalla30Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla30D = '$nuevaCantidadT30Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 32
+					if(@$_POST['nuevaTalla32Inicial'] != ''){
+						$nuevaCantidadT32Inicial = @$_POST['nuevaTalla32Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla32D = '$nuevaCantidadT32Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 34
+					if(@$_POST['nuevaTalla34Inicial'] != ''){
+						$nuevaCantidadT34Inicial = @$_POST['nuevaTalla34Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla34D = '$nuevaCantidadT34Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 36
+					if(@$_POST['nuevaTalla36Inicial'] != ''){
+						$nuevaCantidadT36Inicial = @$_POST['nuevaTalla36Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla36D = '$nuevaCantidadT36Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla 38
+					if(@$_POST['nuevaTalla38Inicial'] != ''){
+						$nuevaCantidadT38Inicial = @$_POST['nuevaTalla38Inicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET talla38D = '$nuevaCantidadT38Inicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla S
+					if(@$_POST['nuevaTallasInicial'] != ''){
+						$nuevaCantidadTsInicial = @$_POST['nuevaTallasInicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET tallasD = '$nuevaCantidadTsInicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla M
+					if(@$_POST['nuevaTallamInicial'] != ''){
+						$nuevaCantidadTmInicial = @$_POST['nuevaTallamInicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET tallamD = '$nuevaCantidadTmInicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla L
+					if(@$_POST['nuevaTallalInicial'] != ''){
+						$nuevaCantidadTlInicial = @$_POST['nuevaTallalInicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET tallalD = '$nuevaCantidadTlInicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla XL
+					if(@$_POST['nuevaTallaxlInicial'] != ''){
+						$nuevaCantidadTxlInicial = @$_POST['nuevaTallaxlInicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET tallaxlD = '$nuevaCantidadTxlInicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla U
+					if(@$_POST['nuevaTallauInicial'] != ''){
+						$nuevaCantidadTuInicial = @$_POST['nuevaTallauInicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET tallauD = '$nuevaCantidadTuInicial' WHERE id_inventario =".$_GET['id_inventario'];
+								$modules = $conexion->query($consulta);
+					}
+
+					// talla EST
+					if(@$_POST['nuevaTallaestInicial'] != ''){
+						$nuevaCantidadTestInicial = @$_POST['nuevaTallaestInicial'];
+						require_once("../../modelo/db.php");
+								$conexion = new Conexion();
+								$consulta = "UPDATE inventarios_productos SET tallaestD = '$nuevaCantidadTestInicial' WHERE id_inventario =".$_GET['id_inventario'];
 								$modules = $conexion->query($consulta);
 					}
 				}
