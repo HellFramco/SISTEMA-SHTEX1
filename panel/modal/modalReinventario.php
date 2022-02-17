@@ -1049,224 +1049,904 @@ $clientes = new Clientes();
 						}
 
 				// Resetear variables Talla 18
-					if(@$_POST['serializadoT18'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla18 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT18'] = '';
+					// Serializando peso talla18
+						if(@$_POST['serializadoT18'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla18 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT18'] = '';
 
-				// Serializando talla34
-					if(@$_POST['serializadoT34'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla34 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT34'] = '';
+						}
+					
+					// Serializando peso talla18 R
+						if(@$_POST['serializadoT18R'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R18 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT18R'] = '';
 
-				// Serializando tallaxl
-					if(@$_POST['serializadoTxl'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_tallaxl = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoTxl'] = '';
+						}
+					
+					// Serializando Stock Inicial talla18
+						if(@$_POST['serializadoStockInicialT18'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla18D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT18'] = '';
 
-				// Serializando talla8
-					if(@$_POST['serializadoT8'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla8 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT8'] = '';
+						}
 
-					}
+					// Serializando Stock actual talla18
+						if(@$_POST['serializadoStockT18'] != ''){
 
-				// Serializando talla20
-					if(@$_POST['serializadoT20'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla20 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT20'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla18 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT18'] = '';
 
-					}
+						}
 
-				// Serializando talla36
-					if(@$_POST['serializadoT36'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla36 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT36'] = '';
+				// Resetear variables talla34
+					// Serializando peso talla34
+						if(@$_POST['serializadoT34'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla34 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT34'] = '';
 
-				// Serializando tallau
-					if(@$_POST['serializadoTu'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_tallau = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoTu'] = '';
+						}
+					
+					// Serializando peso talla34 R
+						if(@$_POST['serializadoT34R'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R34 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT34R'] = '';
 
-				// Serializando talla10
-					if(@$_POST['serializadoT10'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla10 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT10'] = '';
+						}
+					
+					// Serializando Stock Inicial talla34
+						if(@$_POST['serializadoStockInicialT34'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla34D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT34'] = '';
 
-				// Serializando talla26
-					if(@$_POST['serializadoT26'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla26 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT26'] = '';
+						}
 
-					}
+					// Serializando Stock actual talla34
+						if(@$_POST['serializadoStockT34'] != ''){
 
-				// Serializando talla38
-					if(@$_POST['serializadoT38'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla38 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT38'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla34 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT34'] = '';
 
-					}
+						}
 
-				// Serializando tallaest
-					if(@$_POST['serializadoTest'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_tallaest = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoTest'] = '';
+				// Resetear variables tallaxl
+					// Serializando peso tallaXL
+						if(@$_POST['serializadoTxl'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallaxl = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTxl'] = '';
 
-				// Serializando talla12
-					if(@$_POST['serializadoT12'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla12 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT12'] = '';
+						}
+					
+					// Serializando peso tallaXL R
+						if(@$_POST['serializadoTxlR'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_Rxl = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTxlR'] = '';
 
-				// Serializando talla28
-					if(@$_POST['serializadoT28'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla28 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT28'] = '';
+						}
+					
+					// Serializando Stock Inicial tallaXL
+						if(@$_POST['serializadoStockInicialTxl'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallaxlD = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialTxl'] = '';
 
-				// Serializando tallas
-					if(@$_POST['serializadoTs'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_tallas = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoTs'] = '';
+						}
 
-					}
+					// Serializando Stock actual tallaXL
+						if(@$_POST['serializadoStockTxl'] != ''){
 
-				// Serializando talla14
-					if(@$_POST['serializadoT14'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla14 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT14'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallaxl = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockTxl'] = '';
 
-					}
+						}
 
-				// Serializando talla30
-					if(@$_POST['serializadoT30'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla30 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT30'] = '';
+				// Resetear variables talla8
+					// Serializando peso talla8
+						if(@$_POST['serializadoT8'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla8 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT8'] = '';
 
-				// Serializando tallam
-					if(@$_POST['serializadoTm'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_tallam = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoTm'] = '';
+						}
+					
+					// Serializando peso talla8 R
+						if(@$_POST['serializadoT8R'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R8 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT8R'] = '';
 
-				// Serializando talla16
-					if(@$_POST['serializadoT16'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla16 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT16'] = '';
+						}
+					
+					// Serializando Stock Inicial talla8
+						if(@$_POST['serializadoStockInicialT8'] != ''){
 
-					}
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla8D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT8'] = '';
 
-				// Serializando talla32
-					if(@$_POST['serializadoT32'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_talla32 = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoT32'] = '';
+						}
 
-					}
+					// Serializando Stock actual talla8
+						if(@$_POST['serializadoStockT8'] != ''){
 
-				// Serializando tallal
-					if(@$_POST['serializadoTl'] != ''){
-						
-						require_once("../../modelo/db.php");
-						$conexion = new Conexion();
-						$consulta = "UPDATE inventarios_productos SET peso_tallal = '0' WHERE id_inventario =".$_GET['id_inventario'];
-						$modules = $conexion->query($consulta);
-						@$_POST['serializadoTl'] = '';
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla8 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT8'] = '';
 
-					}
+						}
+
+				// Resetear variables talla20
+					// Serializando peso talla20
+						if(@$_POST['serializadoT20'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla20 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT20'] = '';
+
+						}
+					
+					// Serializando peso talla20 R
+						if(@$_POST['serializadoT20R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R20 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT20R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla20
+						if(@$_POST['serializadoStockInicialT20'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla20D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT20'] = '';
+
+						}
+
+					// Serializando Stock actual talla20
+						if(@$_POST['serializadoStockT20'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla20 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT20'] = '';
+
+						}
+
+				// Resetear variables talla36
+					// Serializando peso talla36
+						if(@$_POST['serializadoT36'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla36 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT36'] = '';
+
+						}
+					
+					// Serializando peso talla36 R
+						if(@$_POST['serializadoT36R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R36 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT36R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla36
+						if(@$_POST['serializadoStockInicialT36'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla36D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT36'] = '';
+
+						}
+
+					// Serializando Stock actual talla36
+						if(@$_POST['serializadoStockT36'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla36 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT36'] = '';
+
+						}
+
+				// Resetear variables tallau
+					// Serializando peso tallaU
+						if(@$_POST['serializadoTu'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallau = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTu'] = '';
+
+						}
+					
+					// Serializando peso tallaU R
+						if(@$_POST['serializadoTuR'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_Ru = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTuR'] = '';
+
+						}
+					
+					// Serializando Stock Inicial tallaU
+						if(@$_POST['serializadoStockInicialTu'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallauD = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialTu'] = '';
+
+						}
+
+					// Serializando Stock actual tallaU
+						if(@$_POST['serializadoStockTu'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallau = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockTu'] = '';
+
+						}
+
+				// Resetear variables talla10
+					// Serializando peso talla10
+						if(@$_POST['serializadoT10'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla10 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT10'] = '';
+
+						}
+					
+					// Serializando peso talla10 R
+						if(@$_POST['serializadoT10R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R10 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT10R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla10
+						if(@$_POST['serializadoStockInicialT10'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla10D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT10'] = '';
+
+						}
+
+					// Serializando Stock actual talla10
+						if(@$_POST['serializadoStockT10'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla10 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT10'] = '';
+
+						}
+
+				// Resetear variables talla26
+					// Serializando peso talla26
+						if(@$_POST['serializadoT26'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla26 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT26'] = '';
+
+						}
+					
+					// Serializando peso talla26 R
+						if(@$_POST['serializadoT26R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R26 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT26R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla26
+						if(@$_POST['serializadoStockInicialT26'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla26D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT26'] = '';
+
+						}
+
+					// Serializando Stock actual talla26
+						if(@$_POST['serializadoStockT26'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla26 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT26'] = '';
+
+						}
+
+				// Resetear variables talla38
+					// Serializando peso talla38
+						if(@$_POST['serializadoT38'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla38 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT38'] = '';
+
+						}
+					
+					// Serializando peso talla38 R
+						if(@$_POST['serializadoT38R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R38 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT38R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla38
+						if(@$_POST['serializadoStockInicialT38'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla38D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT38'] = '';
+
+						}
+
+					// Serializando Stock actual talla38
+						if(@$_POST['serializadoStockT38'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla38 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT38'] = '';
+
+						}
+
+				// Resetear variables tallaest
+					// Serializando peso tallaEST
+						if(@$_POST['serializadoTest'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallaest = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTest'] = '';
+
+						}
+					
+					// Serializando peso tallaEST R
+						if(@$_POST['serializadoTestR'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_Rest = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTestR'] = '';
+
+						}
+					
+					// Serializando Stock Inicial tallaEST
+						if(@$_POST['serializadoStockInicialTest'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallaestD = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialTest'] = '';
+
+						}
+
+					// Serializando Stock actual tallaEST
+						if(@$_POST['serializadoStockTest'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallaest = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockTest'] = '';
+
+						}
+
+				// Resetear variables talla12
+					// Serializando peso talla12
+						if(@$_POST['serializadoT12'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla12 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT12'] = '';
+
+						}
+					
+					// Serializando peso talla12 R
+						if(@$_POST['serializadoT12R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R12 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT12R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla12
+						if(@$_POST['serializadoStockInicialT12'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla12D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT12'] = '';
+
+						}
+
+					// Serializando Stock actual talla12
+						if(@$_POST['serializadoStockT12'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla12 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT12'] = '';
+
+						}
+
+				// Resetear variables talla28
+					// Serializando peso talla28
+						if(@$_POST['serializadoT28'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla28 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT28'] = '';
+
+						}
+					
+					// Serializando peso talla28 R
+						if(@$_POST['serializadoT28R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R28 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT28R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla28
+						if(@$_POST['serializadoStockInicialT28'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla28D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT28'] = '';
+
+						}
+
+					// Serializando Stock actual talla28
+						if(@$_POST['serializadoStockT28'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla28 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT28'] = '';
+
+						}
+
+				// Resetear variables tallas
+					// Serializando peso tallaS
+						if(@$_POST['serializadoTs'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallas = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTs'] = '';
+
+						}
+					
+					// Serializando peso tallaS R
+						if(@$_POST['serializadoTsR'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_Rs = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTsR'] = '';
+
+						}
+					
+					// Serializando Stock Inicial tallaS
+						if(@$_POST['serializadoStockInicialTs'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallasD = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialTs'] = '';
+
+						}
+
+					// Serializando Stock actual tallaS
+						if(@$_POST['serializadoStockTs'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallas = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockTs'] = '';
+
+						}
+
+				// Resetear variables talla14
+					// Serializando peso talla14
+						if(@$_POST['serializadoT14'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla14 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT14'] = '';
+
+						}
+					
+					// Serializando peso talla14 R
+						if(@$_POST['serializadoT6R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R14 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT14R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla14
+						if(@$_POST['serializadoStockInicialT14'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla14D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT14'] = '';
+
+						}
+
+					// Serializando Stock actual talla14
+						if(@$_POST['serializadoStockT14'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla14 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT14'] = '';
+
+						}
+
+				// Resetear variables talla30
+					// Serializando peso talla30
+						if(@$_POST['serializadoT30'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla30 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT30'] = '';
+
+						}
+					
+					// Serializando peso talla30 R
+						if(@$_POST['serializadoT30R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R30 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT30R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla30
+						if(@$_POST['serializadoStockInicialT30'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla30D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT30'] = '';
+
+						}
+
+					// Serializando Stock actual talla30
+						if(@$_POST['serializadoStockT30'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla30 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT30'] = '';
+
+						}
+
+				// Resetear variables tallam
+					// Serializando peso tallaM
+						if(@$_POST['serializadoTm'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallam = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTm'] = '';
+
+						}
+					
+					// Serializando peso tallaM R
+						if(@$_POST['serializadoTmR'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_Rm = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTmR'] = '';
+
+						}
+					
+					// Serializando Stock Inicial tallaM
+						if(@$_POST['serializadoStockInicialTm'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallamD = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialTm'] = '';
+
+						}
+
+					// Serializando Stock actual tallaM
+						if(@$_POST['serializadoStockTm'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallam = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockTm'] = '';
+
+						}
+
+				// Resetear variables talla16
+					// Serializando peso talla16
+						if(@$_POST['serializadoT16'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla16 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT16'] = '';
+
+						}
+					
+					// Serializando peso talla16 R
+						if(@$_POST['serializadoT16R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R16 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT16R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla16
+						if(@$_POST['serializadoStockInicialT16'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla16D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT16'] = '';
+
+						}
+
+					// Serializando Stock actual talla16
+						if(@$_POST['serializadoStockT16'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla16 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT16'] = '';
+
+						}
+
+				// Resetear variables talla32
+					// Serializando peso talla32
+						if(@$_POST['serializadoT32'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla32 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT32'] = '';
+
+						}
+					
+					// Serializando peso talla32 R
+						if(@$_POST['serializadoT32R'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_R32 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoT32R'] = '';
+
+						}
+					
+					// Serializando Stock Inicial talla32
+						if(@$_POST['serializadoStockInicialT32'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla32D = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialT32'] = '';
+
+						}
+
+					// Serializando Stock actual talla32
+						if(@$_POST['serializadoStockT32'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET talla32 = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockT32'] = '';
+
+						}
+
+				// Resetear variables tallal
+					// Serializando peso tallaL
+						if(@$_POST['serializadoTl'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallal = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTl'] = '';
+
+						}
+					
+					// Serializando peso tallaL R
+						if(@$_POST['serializadoTlR'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_Rl = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoTlR'] = '';
+
+						}
+					
+					// Serializando Stock Inicial tallaL
+						if(@$_POST['serializadoStockInicialTl'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallalD = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockInicialTl'] = '';
+
+						}
+
+					// Serializando Stock actual tallaL
+						if(@$_POST['serializadoStockTl'] != ''){
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET tallal = '0' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							@$_POST['serializadoStockTl'] = '';
+
+						}
 
 			?>
 			</div>
@@ -2684,614 +3364,615 @@ $clientes = new Clientes();
 	// 	$('#espacioTallas').slideToggle();
 	// });
 
-	// TALLA 6
-		// Peso talla 6
-			function serializarTalla6(event){
-				var i=document.getElementById("serializarT6").value = "serializarT6";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT6").value = "";
-			}
-		
-		// Peso talla 6 R
-			function serializarTalla6R(event){
-				var i=document.getElementById("serializarT6R").value = "serializarT6R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT6R").value = "";
-			}
-		
-		// Stock inicial talla 6
-			function serializarStockInicialTalla6(event){
-				var i=document.getElementById("serializadoStockInicialT6").value = "serializadoStockInicialT6";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT6").value = "";
-			}
+	// Reseteo de variables
+		// TALLA 6
+			// Peso talla 6
+				function serializarTalla6(event){
+					var i=document.getElementById("serializarT6").value = "serializarT6";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT6").value = "";
+				}
+			
+			// Peso talla 6 R
+				function serializarTalla6R(event){
+					var i=document.getElementById("serializarT6R").value = "serializarT6R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT6R").value = "";
+				}
+			
+			// Stock inicial talla 6
+				function serializarStockInicialTalla6(event){
+					var i=document.getElementById("serializadoStockInicialT6").value = "serializadoStockInicialT6";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT6").value = "";
+				}
 
-		// Stock actual talla 6
-			function serializarStockTalla6(event){
-				var i=document.getElementById("serializadoStockT6").value = "serializadoStockT6";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT6").value = "";
-			}
+			// Stock actual talla 6
+				function serializarStockTalla6(event){
+					var i=document.getElementById("serializadoStockT6").value = "serializadoStockT6";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT6").value = "";
+				}
 
-	// TALLA 18
-		// Peso talla 18
-			function serializarTalla18(event){
-				var i=document.getElementById("serializarT18").value = "serializarT18";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT18").value = "";
-			}
-		
-		// Peso talla 18 R
-			function serializarTalla18R(event){
-				var i=document.getElementById("serializarT18R").value = "serializarT18R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT18R").value = "";
-			}
-		
-		// Stock inicial talla 18
-			function serializarStockInicialTalla18(event){
-				var i=document.getElementById("serializadoStockInicialT18").value = "serializadoStockInicialT18";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT18").value = "";
-			}
+		// TALLA 18
+			// Peso talla 18
+				function serializarTalla18(event){
+					var i=document.getElementById("serializarT18").value = "serializarT18";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT18").value = "";
+				}
+			
+			// Peso talla 18 R
+				function serializarTalla18R(event){
+					var i=document.getElementById("serializarT18R").value = "serializarT18R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT18R").value = "";
+				}
+			
+			// Stock inicial talla 18
+				function serializarStockInicialTalla18(event){
+					var i=document.getElementById("serializadoStockInicialT18").value = "serializadoStockInicialT18";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT18").value = "";
+				}
 
-		// Stock actual talla 18
-			function serializarStockTalla18(event){
-				var i=document.getElementById("serializadoStockT18").value = "serializadoStockT18";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT18").value = "";
-			}
+			// Stock actual talla 18
+				function serializarStockTalla18(event){
+					var i=document.getElementById("serializadoStockT18").value = "serializadoStockT18";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT18").value = "";
+				}
 
-	// TALLA 34
-		// Peso talla 34
-			function serializarTalla34(event){
-				var i=document.getElementById("serializarT34").value = "serializarT34";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT34").value = "";
-			}
-		
-		// Peso talla 34 R
-			function serializarTalla34R(event){
-				var i=document.getElementById("serializarT34R").value = "serializarT34R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT34R").value = "";
-			}
-		
-		// Stock inicial talla 34
-			function serializarStockInicialTalla34(event){
-				var i=document.getElementById("serializadoStockInicialT34").value = "serializadoStockInicialT34";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT34").value = "";
-			}
+		// TALLA 34
+			// Peso talla 34
+				function serializarTalla34(event){
+					var i=document.getElementById("serializarT34").value = "serializarT34";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT34").value = "";
+				}
+			
+			// Peso talla 34 R
+				function serializarTalla34R(event){
+					var i=document.getElementById("serializarT34R").value = "serializarT34R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT34R").value = "";
+				}
+			
+			// Stock inicial talla 34
+				function serializarStockInicialTalla34(event){
+					var i=document.getElementById("serializadoStockInicialT34").value = "serializadoStockInicialT34";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT34").value = "";
+				}
 
-		// Stock actual talla 34
-			function serializarStockTalla34(event){
-				var i=document.getElementById("serializadoStockT34").value = "serializadoStockT34";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT34").value = "";
-			}
+			// Stock actual talla 34
+				function serializarStockTalla34(event){
+					var i=document.getElementById("serializadoStockT34").value = "serializadoStockT34";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT34").value = "";
+				}
 
-	// TALLA XL
-		// Peso talla XL
-			function serializarTallaxl(event){
-				var i=document.getElementById("serializarTxl").value = "serializarTxl";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTxl").value = "";
-			}
-		
-		// Peso talla XL R
-			function serializarTallaxlR(event){
-				var i=document.getElementById("serializarTxlR").value = "serializarTxlR";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTxlR").value = "";
-			}
-		
-		// Stock inicial talla XL
-			function serializarStockInicialTallaxl(event){
-				var i=document.getElementById("serializadoStockInicialTxl").value = "serializadoStockInicialTxl";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialTxl").value = "";
-			}
+		// TALLA XL
+			// Peso talla XL
+				function serializarTallaxl(event){
+					var i=document.getElementById("serializarTxl").value = "serializarTxl";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTxl").value = "";
+				}
+			
+			// Peso talla XL R
+				function serializarTallaxlR(event){
+					var i=document.getElementById("serializarTxlR").value = "serializarTxlR";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTxlR").value = "";
+				}
+			
+			// Stock inicial talla XL
+				function serializarStockInicialTallaxl(event){
+					var i=document.getElementById("serializadoStockInicialTxl").value = "serializadoStockInicialTxl";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialTxl").value = "";
+				}
 
-		// Stock actual talla XL
-			function serializarStockTallaxl(event){
-				var i=document.getElementById("serializadoStockTxl").value = "serializadoStockTxl";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockTxl").value = "";
-			}
+			// Stock actual talla XL
+				function serializarStockTallaxl(event){
+					var i=document.getElementById("serializadoStockTxl").value = "serializadoStockTxl";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockTxl").value = "";
+				}
 
-	// TALLA 8
-		// Peso talla 8
-			function serializarTalla8(event){
-				var i=document.getElementById("serializarT8").value = "serializarT8";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT8").value = "";
-			}
-		
-		// Peso talla 8 R
-			function serializarTalla8R(event){
-				var i=document.getElementById("serializarT8R").value = "serializarT8R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT8R").value = "";
-			}
-		
-		// Stock inicial talla 8
-			function serializarStockInicialTalla8(event){
-				var i=document.getElementById("serializadoStockInicialT8").value = "serializadoStockInicialT8";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT8").value = "";
-			}
+		// TALLA 8
+			// Peso talla 8
+				function serializarTalla8(event){
+					var i=document.getElementById("serializarT8").value = "serializarT8";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT8").value = "";
+				}
+			
+			// Peso talla 8 R
+				function serializarTalla8R(event){
+					var i=document.getElementById("serializarT8R").value = "serializarT8R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT8R").value = "";
+				}
+			
+			// Stock inicial talla 8
+				function serializarStockInicialTalla8(event){
+					var i=document.getElementById("serializadoStockInicialT8").value = "serializadoStockInicialT8";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT8").value = "";
+				}
 
-		// Stock actual talla 8
-			function serializarStockTalla8(event){
-				var i=document.getElementById("serializadoStockT8").value = "serializadoStockT8";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT8").value = "";
-			}
+			// Stock actual talla 8
+				function serializarStockTalla8(event){
+					var i=document.getElementById("serializadoStockT8").value = "serializadoStockT8";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT8").value = "";
+				}
 
-	// TALLA 20
-		// Peso talla 20
-			function serializarTalla20(event){
-				var i=document.getElementById("serializarT20").value = "serializarT20";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT20").value = "";
-			}
-		
-		// Peso talla 20 R
-			function serializarTalla20R(event){
-				var i=document.getElementById("serializarT20R").value = "serializarT20R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT20R").value = "";
-			}
-		
-		// Stock inicial talla 20
-			function serializarStockInicialTalla20(event){
-				var i=document.getElementById("serializadoStockInicialT20").value = "serializadoStockInicialT20";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT20").value = "";
-			}
+		// TALLA 20
+			// Peso talla 20
+				function serializarTalla20(event){
+					var i=document.getElementById("serializarT20").value = "serializarT20";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT20").value = "";
+				}
+			
+			// Peso talla 20 R
+				function serializarTalla20R(event){
+					var i=document.getElementById("serializarT20R").value = "serializarT20R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT20R").value = "";
+				}
+			
+			// Stock inicial talla 20
+				function serializarStockInicialTalla20(event){
+					var i=document.getElementById("serializadoStockInicialT20").value = "serializadoStockInicialT20";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT20").value = "";
+				}
 
-		// Stock actual talla 20
-			function serializarStockTalla20(event){
-				var i=document.getElementById("serializadoStockT20").value = "serializadoStockT20";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT20").value = "";
-			}
+			// Stock actual talla 20
+				function serializarStockTalla20(event){
+					var i=document.getElementById("serializadoStockT20").value = "serializadoStockT20";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT20").value = "";
+				}
 
-	// TALLA 36
-		// Peso talla 36
-			function serializarTalla36(event){
-				var i=document.getElementById("serializarT36").value = "serializarT36";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT36").value = "";
-			}
-		
-		// Peso talla 36 R
-			function serializarTalla36R(event){
-				var i=document.getElementById("serializarT36R").value = "serializarT36R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT36R").value = "";
-			}
-		
-		// Stock inicial talla 36
-			function serializarStockInicialTalla36(event){
-				var i=document.getElementById("serializadoStockInicialT36").value = "serializadoStockInicialT36";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT36").value = "";
-			}
+		// TALLA 36
+			// Peso talla 36
+				function serializarTalla36(event){
+					var i=document.getElementById("serializarT36").value = "serializarT36";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT36").value = "";
+				}
+			
+			// Peso talla 36 R
+				function serializarTalla36R(event){
+					var i=document.getElementById("serializarT36R").value = "serializarT36R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT36R").value = "";
+				}
+			
+			// Stock inicial talla 36
+				function serializarStockInicialTalla36(event){
+					var i=document.getElementById("serializadoStockInicialT36").value = "serializadoStockInicialT36";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT36").value = "";
+				}
 
-		// Stock actual talla 36
-			function serializarStockTalla36(event){
-				var i=document.getElementById("serializadoStockT36").value = "serializadoStockT36";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT36").value = "";
-			}
+			// Stock actual talla 36
+				function serializarStockTalla36(event){
+					var i=document.getElementById("serializadoStockT36").value = "serializadoStockT36";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT36").value = "";
+				}
 
-	// TALLA U
-		// Peso talla U
-			function serializarTallau(event){
-				var i=document.getElementById("serializarTu").value = "serializarTu";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTu").value = "";
-			}
-		
-		// Peso talla U R
-			function serializarTallauR(event){
-				var i=document.getElementById("serializarTuR").value = "serializarTuR";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTuR").value = "";
-			}
-		
-		// Stock inicial talla U
-			function serializarStockInicialTallau(event){
-				var i=document.getElementById("serializadoStockInicialTu").value = "serializadoStockInicialTu";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialTu").value = "";
-			}
+		// TALLA U
+			// Peso talla U
+				function serializarTallau(event){
+					var i=document.getElementById("serializarTu").value = "serializarTu";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTu").value = "";
+				}
+			
+			// Peso talla U R
+				function serializarTallauR(event){
+					var i=document.getElementById("serializarTuR").value = "serializarTuR";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTuR").value = "";
+				}
+			
+			// Stock inicial talla U
+				function serializarStockInicialTallau(event){
+					var i=document.getElementById("serializadoStockInicialTu").value = "serializadoStockInicialTu";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialTu").value = "";
+				}
 
-		// Stock actual talla U
-			function serializarStockTallau(event){
-				var i=document.getElementById("serializadoStockTu").value = "serializadoStockTu";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockTu").value = "";
-			}
+			// Stock actual talla U
+				function serializarStockTallau(event){
+					var i=document.getElementById("serializadoStockTu").value = "serializadoStockTu";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockTu").value = "";
+				}
 
-	// TALLA 10
-		// Peso talla 10
-			function serializarTalla10(event){
-				var i=document.getElementById("serializarT10").value = "serializarT10";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT10").value = "";
-			}
-		
-		// Peso talla 10 R
-			function serializarTalla10R(event){
-				var i=document.getElementById("serializarT10R").value = "serializarT10R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT10R").value = "";
-			}
-		
-		// Stock inicial talla 10
-			function serializarStockInicialTalla10(event){
-				var i=document.getElementById("serializadoStockInicialT10").value = "serializadoStockInicialT10";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT10").value = "";
-			}
+		// TALLA 10
+			// Peso talla 10
+				function serializarTalla10(event){
+					var i=document.getElementById("serializarT10").value = "serializarT10";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT10").value = "";
+				}
+			
+			// Peso talla 10 R
+				function serializarTalla10R(event){
+					var i=document.getElementById("serializarT10R").value = "serializarT10R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT10R").value = "";
+				}
+			
+			// Stock inicial talla 10
+				function serializarStockInicialTalla10(event){
+					var i=document.getElementById("serializadoStockInicialT10").value = "serializadoStockInicialT10";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT10").value = "";
+				}
 
-		// Stock actual talla 10
-			function serializarStockTalla10(event){
-				var i=document.getElementById("serializadoStockT10").value = "serializadoStockT10";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT10").value = "";
-			}
+			// Stock actual talla 10
+				function serializarStockTalla10(event){
+					var i=document.getElementById("serializadoStockT10").value = "serializadoStockT10";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT10").value = "";
+				}
 
-	// TALLA 26
-		// Peso talla 26
-			function serializarTalla26(event){
-				var i=document.getElementById("serializarT26").value = "serializarT26";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT26").value = "";
-			}
-		
-		// Peso talla 26 R
-			function serializarTalla26R(event){
-				var i=document.getElementById("serializarT26R").value = "serializarT26R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT26R").value = "";
-			}
-		
-		// Stock inicial talla 26
-			function serializarStockInicialTalla26(event){
-				var i=document.getElementById("serializadoStockInicialT26").value = "serializadoStockInicialT26";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT26").value = "";
-			}
+		// TALLA 26
+			// Peso talla 26
+				function serializarTalla26(event){
+					var i=document.getElementById("serializarT26").value = "serializarT26";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT26").value = "";
+				}
+			
+			// Peso talla 26 R
+				function serializarTalla26R(event){
+					var i=document.getElementById("serializarT26R").value = "serializarT26R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT26R").value = "";
+				}
+			
+			// Stock inicial talla 26
+				function serializarStockInicialTalla26(event){
+					var i=document.getElementById("serializadoStockInicialT26").value = "serializadoStockInicialT26";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT26").value = "";
+				}
 
-		// Stock actual talla 26
-			function serializarStockTalla26(event){
-				var i=document.getElementById("serializadoStockT26").value = "serializadoStockT26";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT26").value = "";
-			}
+			// Stock actual talla 26
+				function serializarStockTalla26(event){
+					var i=document.getElementById("serializadoStockT26").value = "serializadoStockT26";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT26").value = "";
+				}
 
-	// TALLA 38
-		// Peso talla 38
-			function serializarTalla38(event){
-				var i=document.getElementById("serializarT38").value = "serializarT38";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT38").value = "";
-			}
-		
-		// Peso talla 38 R
-			function serializarTalla38R(event){
-				var i=document.getElementById("serializarT38R").value = "serializarT38R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT38R").value = "";
-			}
-		
-		// Stock inicial talla 38
-			function serializarStockInicialTalla38(event){
-				var i=document.getElementById("serializadoStockInicialT38").value = "serializadoStockInicialT38";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT38").value = "";
-			}
+		// TALLA 38
+			// Peso talla 38
+				function serializarTalla38(event){
+					var i=document.getElementById("serializarT38").value = "serializarT38";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT38").value = "";
+				}
+			
+			// Peso talla 38 R
+				function serializarTalla38R(event){
+					var i=document.getElementById("serializarT38R").value = "serializarT38R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT38R").value = "";
+				}
+			
+			// Stock inicial talla 38
+				function serializarStockInicialTalla38(event){
+					var i=document.getElementById("serializadoStockInicialT38").value = "serializadoStockInicialT38";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT38").value = "";
+				}
 
-		// Stock actual talla 38
-			function serializarStockTalla38(event){
-				var i=document.getElementById("serializadoStockT38").value = "serializadoStockT38";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT38").value = "";
-			}
+			// Stock actual talla 38
+				function serializarStockTalla38(event){
+					var i=document.getElementById("serializadoStockT38").value = "serializadoStockT38";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT38").value = "";
+				}
 
-	// TALLA EST
-		// Peso talla EST
-			function serializarTallaest(event){
-				var i=document.getElementById("serializarTest").value = "serializarTest";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTest").value = "";
-			}
-		
-		// Peso talla EST R
-			function serializarTallaestR(event){
-				var i=document.getElementById("serializarTestR").value = "serializarTestR";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTestR").value = "";
-			}
-		
-		// Stock inicial talla EST
-			function serializarStockInicialTallaest(event){
-				var i=document.getElementById("serializadoStockInicialTest").value = "serializadoStockInicialTest";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialTest").value = "";
-			}
+		// TALLA EST
+			// Peso talla EST
+				function serializarTallaest(event){
+					var i=document.getElementById("serializarTest").value = "serializarTest";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTest").value = "";
+				}
+			
+			// Peso talla EST R
+				function serializarTallaestR(event){
+					var i=document.getElementById("serializarTestR").value = "serializarTestR";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTestR").value = "";
+				}
+			
+			// Stock inicial talla EST
+				function serializarStockInicialTallaest(event){
+					var i=document.getElementById("serializadoStockInicialTest").value = "serializadoStockInicialTest";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialTest").value = "";
+				}
 
-		// Stock actual talla EST
-			function serializarStockTallaest(event){
-				var i=document.getElementById("serializadoStockTest").value = "serializadoStockTest";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockTest").value = "";
-			}
+			// Stock actual talla EST
+				function serializarStockTallaest(event){
+					var i=document.getElementById("serializadoStockTest").value = "serializadoStockTest";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockTest").value = "";
+				}
 
-	// TALLA 12
-		// Peso talla 12
-			function serializarTalla12(event){
-				var i=document.getElementById("serializarT12").value = "serializarT12";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT12").value = "";
-			}
-		
-		// Peso talla 12 R
-			function serializarTalla12R(event){
-				var i=document.getElementById("serializarT12R").value = "serializarT12R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT12R").value = "";
-			}
-		
-		// Stock inicial talla 12
-			function serializarStockInicialTalla12(event){
-				var i=document.getElementById("serializadoStockInicialT12").value = "serializadoStockInicialT12";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT12").value = "";
-			}
+		// TALLA 12
+			// Peso talla 12
+				function serializarTalla12(event){
+					var i=document.getElementById("serializarT12").value = "serializarT12";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT12").value = "";
+				}
+			
+			// Peso talla 12 R
+				function serializarTalla12R(event){
+					var i=document.getElementById("serializarT12R").value = "serializarT12R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT12R").value = "";
+				}
+			
+			// Stock inicial talla 12
+				function serializarStockInicialTalla12(event){
+					var i=document.getElementById("serializadoStockInicialT12").value = "serializadoStockInicialT12";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT12").value = "";
+				}
 
-		// Stock actual talla 12
-			function serializarStockTalla12(event){
-				var i=document.getElementById("serializadoStockT12").value = "serializadoStockT12";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT12").value = "";
-			}
+			// Stock actual talla 12
+				function serializarStockTalla12(event){
+					var i=document.getElementById("serializadoStockT12").value = "serializadoStockT12";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT12").value = "";
+				}
 
-	// TALLA 28
-		// Peso talla 28
-			function serializarTalla28(event){
-				var i=document.getElementById("serializarT28").value = "serializarT28";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT28").value = "";
-			}
-		
-		// Peso talla 28 R
-			function serializarTalla28R(event){
-				var i=document.getElementById("serializarT28R").value = "serializarT28R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT28R").value = "";
-			}
-		
-		// Stock inicial talla 28
-			function serializarStockInicialTalla28(event){
-				var i=document.getElementById("serializadoStockInicialT28").value = "serializadoStockInicialT28";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT28").value = "";
-			}
+		// TALLA 28
+			// Peso talla 28
+				function serializarTalla28(event){
+					var i=document.getElementById("serializarT28").value = "serializarT28";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT28").value = "";
+				}
+			
+			// Peso talla 28 R
+				function serializarTalla28R(event){
+					var i=document.getElementById("serializarT28R").value = "serializarT28R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT28R").value = "";
+				}
+			
+			// Stock inicial talla 28
+				function serializarStockInicialTalla28(event){
+					var i=document.getElementById("serializadoStockInicialT28").value = "serializadoStockInicialT28";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT28").value = "";
+				}
 
-		// Stock actual talla 28
-			function serializarStockTalla28(event){
-				var i=document.getElementById("serializadoStockT28").value = "serializadoStockT28";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT28").value = "";
-			}
+			// Stock actual talla 28
+				function serializarStockTalla28(event){
+					var i=document.getElementById("serializadoStockT28").value = "serializadoStockT28";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT28").value = "";
+				}
 
-	// TALLA S
-		// Peso talla S
-			function serializarTallas(event){
-				var i=document.getElementById("serializarTs").value = "serializarTs";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTs").value = "";
-			}
-		
-		// Peso talla S R
-			function serializarTallasR(event){
-				var i=document.getElementById("serializarTsR").value = "serializarTsR";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTsR").value = "";
-			}
-		
-		// Stock inicial talla S
-			function serializarStockInicialTallas(event){
-				var i=document.getElementById("serializadoStockInicialTs").value = "serializadoStockInicialTs";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialTs").value = "";
-			}
+		// TALLA S
+			// Peso talla S
+				function serializarTallas(event){
+					var i=document.getElementById("serializarTs").value = "serializarTs";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTs").value = "";
+				}
+			
+			// Peso talla S R
+				function serializarTallasR(event){
+					var i=document.getElementById("serializarTsR").value = "serializarTsR";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTsR").value = "";
+				}
+			
+			// Stock inicial talla S
+				function serializarStockInicialTallas(event){
+					var i=document.getElementById("serializadoStockInicialTs").value = "serializadoStockInicialTs";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialTs").value = "";
+				}
 
-		// Stock actual talla S
-			function serializarStockTallas(event){
-				var i=document.getElementById("serializadoStockTs").value = "serializadoStockTs";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockTs").value = "";
-			}
+			// Stock actual talla S
+				function serializarStockTallas(event){
+					var i=document.getElementById("serializadoStockTs").value = "serializadoStockTs";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockTs").value = "";
+				}
 
-	// TALLA 14
-		// Peso talla 14
-			function serializarTalla14(event){
-				var i=document.getElementById("serializarT14").value = "serializarT14";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT14").value = "";
-			}
-		
-		// Peso talla 14 R
-			function serializarTalla14R(event){
-				var i=document.getElementById("serializarT14R").value = "serializarT14R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT14R").value = "";
-			}
-		
-		// Stock inicial talla 14
-			function serializarStockInicialTalla14(event){
-				var i=document.getElementById("serializadoStockInicialT14").value = "serializadoStockInicialT14";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT14").value = "";
-			}
+		// TALLA 14
+			// Peso talla 14
+				function serializarTalla14(event){
+					var i=document.getElementById("serializarT14").value = "serializarT14";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT14").value = "";
+				}
+			
+			// Peso talla 14 R
+				function serializarTalla14R(event){
+					var i=document.getElementById("serializarT14R").value = "serializarT14R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT14R").value = "";
+				}
+			
+			// Stock inicial talla 14
+				function serializarStockInicialTalla14(event){
+					var i=document.getElementById("serializadoStockInicialT14").value = "serializadoStockInicialT14";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT14").value = "";
+				}
 
-		// Stock actual talla 14
-			function serializarStockTalla14(event){
-				var i=document.getElementById("serializadoStockT14").value = "serializadoStockT14";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT14").value = "";
-			}
+			// Stock actual talla 14
+				function serializarStockTalla14(event){
+					var i=document.getElementById("serializadoStockT14").value = "serializadoStockT14";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT14").value = "";
+				}
 
-	// TALLA 30
-		// Peso talla 30
-			function serializarTalla30(event){
-				var i=document.getElementById("serializarT30").value = "serializarT30";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT30").value = "";
-			}
-		
-		// Peso talla 30 R
-			function serializarTalla30R(event){
-				var i=document.getElementById("serializarT30R").value = "serializarT30R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT30R").value = "";
-			}
-		
-		// Stock inicial talla 30
-			function serializarStockInicialTalla30(event){
-				var i=document.getElementById("serializadoStockInicialT30").value = "serializadoStockInicialT30";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT30").value = "";
-			}
+		// TALLA 30
+			// Peso talla 30
+				function serializarTalla30(event){
+					var i=document.getElementById("serializarT30").value = "serializarT30";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT30").value = "";
+				}
+			
+			// Peso talla 30 R
+				function serializarTalla30R(event){
+					var i=document.getElementById("serializarT30R").value = "serializarT30R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT30R").value = "";
+				}
+			
+			// Stock inicial talla 30
+				function serializarStockInicialTalla30(event){
+					var i=document.getElementById("serializadoStockInicialT30").value = "serializadoStockInicialT30";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT30").value = "";
+				}
 
-		// Stock actual talla 30
-			function serializarStockTalla30(event){
-				var i=document.getElementById("serializadoStockT30").value = "serializadoStockT30";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT30").value = "";
-			}
+			// Stock actual talla 30
+				function serializarStockTalla30(event){
+					var i=document.getElementById("serializadoStockT30").value = "serializadoStockT30";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT30").value = "";
+				}
 
-	// TALLA M
-		// Peso talla M
-			function serializarTallam(event){
-				var i=document.getElementById("serializarTm").value = "serializarTm";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTm").value = "";
-			}
-		
-		// Peso talla M R
-			function serializarTallamR(event){
-				var i=document.getElementById("serializarTmR").value = "serializarTmR";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTmR").value = "";
-			}
-		
-		// Stock inicial talla M
-			function serializarStockInicialTallam(event){
-				var i=document.getElementById("serializadoStockInicialTm").value = "serializadoStockInicialTm";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialTm").value = "";
-			}
+		// TALLA M
+			// Peso talla M
+				function serializarTallam(event){
+					var i=document.getElementById("serializarTm").value = "serializarTm";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTm").value = "";
+				}
+			
+			// Peso talla M R
+				function serializarTallamR(event){
+					var i=document.getElementById("serializarTmR").value = "serializarTmR";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTmR").value = "";
+				}
+			
+			// Stock inicial talla M
+				function serializarStockInicialTallam(event){
+					var i=document.getElementById("serializadoStockInicialTm").value = "serializadoStockInicialTm";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialTm").value = "";
+				}
 
-		// Stock actual talla M
-			function serializarStockTallam(event){
-				var i=document.getElementById("serializadoStockTm").value = "serializadoStockTm";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockTm").value = "";
-			}
+			// Stock actual talla M
+				function serializarStockTallam(event){
+					var i=document.getElementById("serializadoStockTm").value = "serializadoStockTm";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockTm").value = "";
+				}
 
-	// TALLA 16
-		// Peso talla 16
-			function serializarTalla16(event){
-				var i=document.getElementById("serializarT16").value = "serializarT16";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT16").value = "";
-			}
-		
-		// Peso talla 16 R
-			function serializarTalla16R(event){
-				var i=document.getElementById("serializarT16R").value = "serializarT16R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT16R").value = "";
-			}
-		
-		// Stock inicial talla 16
-			function serializarStockInicialTalla16(event){
-				var i=document.getElementById("serializadoStockInicialT16").value = "serializadoStockInicialT16";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT16").value = "";
-			}
+		// TALLA 16
+			// Peso talla 16
+				function serializarTalla16(event){
+					var i=document.getElementById("serializarT16").value = "serializarT16";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT16").value = "";
+				}
+			
+			// Peso talla 16 R
+				function serializarTalla16R(event){
+					var i=document.getElementById("serializarT16R").value = "serializarT16R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT16R").value = "";
+				}
+			
+			// Stock inicial talla 16
+				function serializarStockInicialTalla16(event){
+					var i=document.getElementById("serializadoStockInicialT16").value = "serializadoStockInicialT16";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT16").value = "";
+				}
 
-		// Stock actual talla 16
-			function serializarStockTalla16(event){
-				var i=document.getElementById("serializadoStockT16").value = "serializadoStockT16";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT16").value = "";
-			}
+			// Stock actual talla 16
+				function serializarStockTalla16(event){
+					var i=document.getElementById("serializadoStockT16").value = "serializadoStockT16";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT16").value = "";
+				}
 
-	// TALLA 32
-		// Peso talla 32
-			function serializarTalla32(event){
-				var i=document.getElementById("serializarT32").value = "serializarT32";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT32").value = "";
-			}
-		
-		// Peso talla 32 R
-			function serializarTalla32R(event){
-				var i=document.getElementById("serializarT32R").value = "serializarT32R";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarT32R").value = "";
-			}
-		
-		// Stock inicial talla 32
-			function serializarStockInicialTalla32(event){
-				var i=document.getElementById("serializadoStockInicialT32").value = "serializadoStockInicialT32";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialT32").value = "";
-			}
+		// TALLA 32
+			// Peso talla 32
+				function serializarTalla32(event){
+					var i=document.getElementById("serializarT32").value = "serializarT32";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT32").value = "";
+				}
+			
+			// Peso talla 32 R
+				function serializarTalla32R(event){
+					var i=document.getElementById("serializarT32R").value = "serializarT32R";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarT32R").value = "";
+				}
+			
+			// Stock inicial talla 32
+				function serializarStockInicialTalla32(event){
+					var i=document.getElementById("serializadoStockInicialT32").value = "serializadoStockInicialT32";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialT32").value = "";
+				}
 
-		// Stock actual talla 32
-			function serializarStockTalla32(event){
-				var i=document.getElementById("serializadoStockT32").value = "serializadoStockT32";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockT32").value = "";
-			}
+			// Stock actual talla 32
+				function serializarStockTalla32(event){
+					var i=document.getElementById("serializadoStockT32").value = "serializadoStockT32";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockT32").value = "";
+				}
 
-	// TALLA l
-		// Peso talla L
-			function serializarTallal(event){
-				var i=document.getElementById("serializarTl").value = "serializarTl";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTl").value = "";
-			}
-		
-		// Peso talla L R
-			function serializarTallalR(event){
-				var i=document.getElementById("serializarTlR").value = "serializarTlR";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializarTlR").value = "";
-			}
-		
-		// Stock inicial talla L
-			function serializarStockInicialTallal(event){
-				var i=document.getElementById("serializadoStockInicialTl").value = "serializadoStockInicialTl";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockInicialTl").value = "";
-			}
+		// TALLA l
+			// Peso talla L
+				function serializarTallal(event){
+					var i=document.getElementById("serializarTl").value = "serializarTl";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTl").value = "";
+				}
+			
+			// Peso talla L R
+				function serializarTallalR(event){
+					var i=document.getElementById("serializarTlR").value = "serializarTlR";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializarTlR").value = "";
+				}
+			
+			// Stock inicial talla L
+				function serializarStockInicialTallal(event){
+					var i=document.getElementById("serializadoStockInicialTl").value = "serializadoStockInicialTl";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockInicialTl").value = "";
+				}
 
-		// Stock actual talla L
-			function serializarStockTallal(event){
-				var i=document.getElementById("serializadoStockTl").value = "serializadoStockTl";
-				document.getElementById("enviarF").click();
-				var i=document.getElementById("serializadoStockTl").value = "";
-			}
+			// Stock actual talla L
+				function serializarStockTallal(event){
+					var i=document.getElementById("serializadoStockTl").value = "serializadoStockTl";
+					document.getElementById("enviarF").click();
+					var i=document.getElementById("serializadoStockTl").value = "";
+				}
 
 	// Funciones de teclado
 		function onKeyDownHandler(event) {
