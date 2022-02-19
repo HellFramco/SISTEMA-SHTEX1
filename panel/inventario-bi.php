@@ -49,14 +49,11 @@ $cant = 0;
 
 
 
-
-
-
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+                                    <table name="EXISTENCIA" class="table table-bordered" id="example" width="100%" cellspacing="0">
 
                                             <tr>
                                                 
@@ -104,7 +101,7 @@ $cant = 0;
 
                                             <?php
                                             $item = 1;
-                                            foreach ($inventarios->verTodoInventarioRegistrado() as $key) {
+                                            foreach ($inventarios->verTodoInventarioSoporte() as $key) {
                                               $cantidad = $key['talla6'] + $key['talla8'] + $key['talla10'] + $key['talla12'] +  $key['talla14'] + $key['talla16'] + $key['talla18'] + $key['talla20'] + $key['talla26'] + $key['talla28'] + $key['talla30'] + $key['talla32'] + $key['talla34'] + $key['talla36'];
                                               $cantidad = $cantidad + $key['talla38'] +  $key['tallas'] + $key['tallam'] + $key['tallal'] + $key['tallaxl'] + $key['tallau'] + $key['tallaest'];
                                             ?>

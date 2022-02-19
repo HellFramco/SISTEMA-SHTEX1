@@ -2,6 +2,97 @@
 class Inventarios
 {
 
+    
+    public function verColor()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM color";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+    public function verCategoria()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM categorias";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+
+    public function verGenero()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM generos";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+
+    public function verProvedor()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM proveedores";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+
+    public function verTelas()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM telas";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+
+    public function verTipos()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM tipos_inventarios";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+
+    public function verMarcas()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM marcas";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+
     public function verTodoInventarioSoporte()
     {
         require_once 'db.php';

@@ -946,19 +946,192 @@ $cant = 0;
 
 <input type="hidden" value="1" id="op">
 
+<div style="display: flex;" class="table-responsive">
+
+<div class="col-sm-2" style="">
+    <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead onclick="tipo()">
+            <tr>
+                <th>TIPOS</th>
+            </tr>
+        </thead>
+        <tbody id="tipo" style="color: gray;display: non;">
+            <?php
+            foreach ($inventarios->verTipos() as $key) {
+            ?>
+                    <td><?php echo $key['nombre']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+  </table>
+  <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead onclick="provedor()">
+            <tr>
+                <th>PROVEDOR</th>
+            </tr>
+        </thead>
+        <tbody id="provedor" style="color: gray;display: non;">
+            <?php
+            foreach ($inventarios->verProvedor() as $key) {
+            ?>
+                    <td><?php echo $key['nameProv']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="col-sm-2" style="">
+    <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead onclick="marca()">
+            <tr>
+                <th>MARCAS</th>
+            </tr>
+        </thead>
+        <tbody id="marca" style="color: gray;display: n;">
+            <?php
+            foreach ($inventarios->verMarcas() as $key) {
+            ?>
+                    <td><?php echo $key['nameMar']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+    </table>
+    <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead onclick="tela()">
+            <tr>
+                <th>TELAS</th>
+            </tr>
+        </thead>
+        <tbody id="tela" style="color: gray;display: n;">
+            <?php
+            foreach ($inventarios->verTelas() as $key) {
+            ?>
+                    <td style=""><?php echo $key['nameTel']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="col-sm-2" style="">
+    <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead onclick="genero()">
+            <tr>
+                <th>GENERO</th>
+            </tr>
+        </thead>
+        <tbody id="genero" style="color: gray;display: n;">
+            <?php
+            foreach ($inventarios->verGenero() as $key) {
+            ?>
+                    <td><?php echo $key['nombre_genero']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="col-sm-2">
+    <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead>
+            <tr onclick="silueta()">
+                <th>SILUETAS</th>
+            </tr>
+        </thead>
+        <tbody id="silueta" style="color: gray;display: n;">
+            <?php
+            foreach ($inventarios->verSiluetas() as $key) {
+            ?>
+                    <td><?php echo $key['nameSil']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="col-sm-2" style="">
+    <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead onclick="categoria()">
+            <tr>
+                <th>CATEGORIAS</th>
+            </tr>
+        </thead>
+        <tbody id="categoria" style="color: gray;display: n;">
+            <?php
+            foreach ($inventarios->verCategoria() as $key) {
+            ?>
+                    <td><?php echo $key['nameCat']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="col-sm-2" style="">
+    <table class="table table-bordered" id="exampl" width="100%" cellspacing="0">
+        <thead onclick="color()">
+            <tr>
+                <th>COLOR</th>
+            </tr>
+        </thead>
+        <tbody id="color" style="color: gray;display: n;">
+            <?php
+            foreach ($inventarios->verColor() as $key) {
+            ?>
+                    <td><?php echo $key['nameCol']; ?></td>
+                    </tr>
+                
+            <?php
+            }
+            ?>
+
+        </tbody>
+    </table>
+</div>
+    
+</div>
 
 
 
 
 
-                    <div class="col-sm-12">
+                    <div style="display: none;" class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                
+
                                                 <th style="display: none;"></th>
                                                 <th style="display: none;"></th>
                                                 <th style="display: none;"></th>
@@ -1098,12 +1271,15 @@ $cant = 0;
                     </div>
 
 
+
                 </div>
 
-
-
-
             </div>
+
+              
+
+            
+
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -1132,10 +1308,47 @@ $cant = 0;
 
 
 
-  
+
 
 
 <script >
+
+function tipo(){
+
+}
+function marca(){
+    document.getElementById("op").value = op;
+
+}
+function genero(){
+    document.getElementById("op").value = op;
+
+}
+function silueta(){
+    document.getElementById("op").value = op;
+
+}
+function categoria(){
+    document.getElementById("op").value = op;
+
+}
+function color(){
+    document.getElementById("op").value = op;
+
+}
+function provedor(){
+    document.getElementById("op").value = op;
+
+}
+function tela(){
+    var x = document.getElementById("tela");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+
+}
 
 function option(op){
     document.getElementById("op").value = op;
@@ -1237,8 +1450,8 @@ $.fn.dataTable.ext.search.push(
 var op = document.getElementById("op").value;
 
 
-          
-    
+
+
         if(op=="1"){
             if ( ( isNaN( min ) && isNaN( max ) ) ||
                     ( isNaN( min ) && t6 <= max ) ||
@@ -1249,7 +1462,7 @@ var op = document.getElementById("op").value;
                 }
 
 
-            
+
 
 
         }else if(op=="2"){
