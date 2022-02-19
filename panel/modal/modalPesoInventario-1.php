@@ -48,7 +48,7 @@
 		?> -->
 
 
-		<form action="../../modelo/accionesProductos-1.php" id="formulario" onkeypress="submitOnEnter(event)" method="post">
+		<form action="../../modelo/accionesProductos-1.php" id="formulario" name="formulario" onsubmit="submitForm(event)" method="post">
 		<?php 
 		foreach ($inventarios->verInventarioId($_GET['id_inventario']) as $key) {
 		?>
@@ -144,7 +144,7 @@
 			<input type="hidden" name="referencia" value="<?php echo $key['referencia']; ?>">
 			<input type="hidden" name="descripcion" value="<?php echo $key['descripcion']; ?>">
 			<input type="hidden" name="color" value="<?php echo $key['color']; ?>">
-			<input type="submit" class="btn btn-success" value="Guardar">	
+			<input type="submit" id="enviarF" class="btn btn-success" value="Guardar">	
 
 		</div>
 		<?php
@@ -168,4 +168,16 @@
 	// $('#tallas').click(function(){
 	// 	$('#espacioTallas').slideToggle();
 	// });
+
+	function submitForm(event){
+    event.preventDefault();
+
+	var opcion = confirm("Seguro que quiere actualizar EL PESO de la TALLA?");
+	if(opcion == true){
+		document.formulario.submit()
+	}else{
+	}
+  }
+
+
 </script>

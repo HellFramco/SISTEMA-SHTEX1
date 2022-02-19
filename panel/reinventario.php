@@ -973,42 +973,42 @@ $cant = 0;
                                                 <th>tela</th>
                                                 <th>categoria</th>
                                                 <th>genero</th>
-                                                <th>coleccion</th>
+                                                <th style="display: none;">coleccion</th>
                                                 <th>bodega</th>
                                                 <th style="display: none;">ruta</th>
                                                 <th>color</th>
                                                 <th style="display: none;">proveedor</th>
-                                                <th>talla 6 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal1" onclick="option('1')" alt=""></th>
-                                                <th>talla 8 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal2" onclick="option('2')" alt=""></th>
-                                                <th>talla 10 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal3" onclick="option('3')" alt=""></th>
-                                                <th>talla 12 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal4" onclick="option('4')" alt=""></th>
-                                                <th>talla 14 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal5" onclick="option('5')" alt=""></th>
-                                                <th>talla 16 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal6" onclick="option('6')" alt=""></th>
-                                                <th>talla 18 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal7" onclick="option('7')" alt=""></th>
-                                                <th>talla 20 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal8" onclick="option('8')" alt=""></th>
-                                                <th>talla 26 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal9" onclick="option('9')" alt=""></th>
-                                                <th>talla 28 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal10" onclick="option('10')" alt=""></th>
-                                                <th>talla 30 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal11" onclick="option('11')" alt=""></th>
-                                                <th>talla 32 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal12" onclick="option('12')" alt=""></th>
-                                                <th>talla 34 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal13" onclick="option('13')" alt=""></th>
-                                                <th>talla 36 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal14" onclick="option('14')" alt=""></th>
-                                                <th>talla 38 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal15" onclick="option('15')" alt=""></th>
-                                                <th>talla S <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal16" onclick="option('16')" alt=""></th>
-                                                <th>talla m <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal17" onclick="option('17')" alt=""></th>
-                                                <th>talla l <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal18" onclick="option('18')" alt=""></th>
-                                                <th>talla xl <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal19" onclick="option('19')" alt=""></th>
-                                                <th>talla u <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal20" onclick="option('20')" alt=""></th>
-                                                <th>talla est <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal21" onclick="option('21')" alt=""></th>
+                                                <th style="display: none;">talla 6 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal1" onclick="option('1')" alt=""></th>
+                                                <th style="display: none;">talla 8 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal2" onclick="option('2')" alt=""></th>
+                                                <th style="display: none;">talla 10 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal3" onclick="option('3')" alt=""></th>
+                                                <th style="display: none;">talla 12 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal4" onclick="option('4')" alt=""></th>
+                                                <th style="display: none;">talla 14 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal5" onclick="option('5')" alt=""></th>
+                                                <th style="display: none;">talla 16 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal6" onclick="option('6')" alt=""></th>
+                                                <th style="display: none;">talla 18 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal7" onclick="option('7')" alt=""></th>
+                                                <th style="display: none;">talla 20 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal8" onclick="option('8')" alt=""></th>
+                                                <th style="display: none;">talla 26 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal9" onclick="option('9')" alt=""></th>
+                                                <th style="display: none;">talla 28 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal10" onclick="option('10')" alt=""></th>
+                                                <th style="display: none;">talla 30 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal11" onclick="option('11')" alt=""></th>
+                                                <th style="display: none;">talla 32 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal12" onclick="option('12')" alt=""></th>
+                                                <th style="display: none;">talla 34 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal13" onclick="option('13')" alt=""></th>
+                                                <th style="display: none;">talla 36 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal14" onclick="option('14')" alt=""></th>
+                                                <th style="display: none;">talla 38 <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal15" onclick="option('15')" alt=""></th>
+                                                <th style="display: none;">talla S <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal16" onclick="option('16')" alt=""></th>
+                                                <th style="display: none;">talla m <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal17" onclick="option('17')" alt=""></th>
+                                                <th style="display: none;">talla l <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal18" onclick="option('18')" alt=""></th>
+                                                <th style="display: none;">talla xl <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal19" onclick="option('19')" alt=""></th>
+                                                <th style="display: none;">talla u <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal20" onclick="option('20')" alt=""></th>
+                                                <th style="display: none;">talla est <img src="../imagenes/iconos/rank.jpeg" data-toggle="modal" data-target="#exampleModal21" onclick="option('21')" alt=""></th>
                                                 <th>Total</th>
                                                 <th>estado</th>
                                                 <th>precio</th>
-                                                <th>fecha ingreso producto</th>
+                                                <th style="display: none;">fecha ingreso producto</th>
                                             </tr>
                                         </thead>
                                         <tbody style="color: gray;">
                                             <?php
                                             $item = 1;
-                                            foreach ($inventarios->verTodoInventarioRegistrado() as $key) {
+                                            foreach ($inventarios->verTodoInventarioSoporte() as $key) {
                                               $cantidad = $key['talla6'] + $key['talla8'] + $key['talla10'] + $key['talla12'] +  $key['talla14'] + $key['talla16'] + $key['talla18'] + $key['talla20'] + $key['talla26'] + $key['talla28'] + $key['talla30'] + $key['talla32'] + $key['talla34'] + $key['talla36'];
                                               $cantidad = $cantidad + $key['talla38'] +  $key['tallas'] + $key['tallam'] + $key['tallal'] + $key['tallaxl'] + $key['tallau'] + $key['tallaest'];
                                             ?>
@@ -1024,7 +1024,7 @@ $cant = 0;
                                                       
                                                     </td>
                                                     <td>
-                                                        <a href="modal/modalReinventario.php?id_inventario=<?php echo $key['id_inventario']; ?>">R</a>
+                                                        <a href="modal/modalReinventario.php?id_inventario=<?php echo $key['id_inventario']; ?>" target="blank"><img style="width: 40px;height: 40px;" src="../imagenes/f.gif"></a>
                                                     </td>
                                                     <td>
                                                        <?php if ($key['confirma_imagen_subida'] == 'SI') {
@@ -1045,36 +1045,13 @@ $cant = 0;
                                                     <td><?php echo $key['tela']; ?></td>
                                                     <td><?php echo $key['categoria']; ?></td>
                                                     <td><?php echo $key['genero']; ?></td>
-                                                    <td><?php echo $key['coleccion']; ?></td>
                                                     <td><?php echo $key['bodega']; ?></td>
-                                                    <td style="display: none;"><?php echo $key['ruta']; ?></td>
+                                                    <td style="display: none;"><?php echo $key['ruta'];?>dsadas</td>
                                                     <td><?php echo $productos->color_hexa($key['color']);; ?></td>
                                                     <td style="display: none;"><?php echo $key['proveedor']; ?></td>
-                                                    <td><?php echo $key['talla6']; ?></td>
-                                                    <td><?php echo $key['talla8']; ?></td>
-                                                    <td><?php echo $key['talla10']; ?></td>
-                                                    <td><?php echo $key['talla12']; ?></td>
-                                                    <td><?php echo $key['talla14']; ?></td>
-                                                    <td><?php echo $key['talla16']; ?></td>
-                                                    <td><?php echo $key['talla18']; ?></td>
-                                                    <td><?php echo $key['talla20']; ?></td>
-                                                    <td><?php echo $key['talla26']; ?></td>
-                                                    <td><?php echo $key['talla28']; ?></td>
-                                                    <td><?php echo $key['talla30']; ?></td>
-                                                    <td><?php echo $key['talla32']; ?></td>
-                                                    <td><?php echo $key['talla34']; ?></td>
-                                                    <td><?php echo $key['talla36']; ?></td>
-                                                    <td><?php echo $key['talla38']; ?></td>
-                                                    <td><?php echo $key['tallas']; ?></td>
-                                                    <td><?php echo $key['tallam']; ?></td>
-                                                    <td><?php echo $key['tallal']; ?></td>
-                                                    <td><?php echo $key['tallaxl']; ?></td>
-                                                    <td><?php echo $key['tallau']; ?></td>
-                                                    <td><?php echo $key['tallaest']; ?></td>
                                                     <td><?php echo $cantidad; ?></td>
                                                     <td><?php echo $key['estado']; ?></td>
                                                     <td><?php echo $key['precio']; ?></td>
-                                                    <td><?php echo $key['fecha_ingreso_producto']; ?></td>
 
                                                 </tr>
                                             <?php
@@ -1101,32 +1078,10 @@ $cant = 0;
                                                 <th>tela</th>
                                                 <th>categoria</th>
                                                 <th>genero</th>
-                                                <th>coleccion</th>
                                                 <th>bodega</th>
                                                 <th style="display: none;">ruta</th>
                                                 <th>color</th>
                                                 <th style="display: none;">proveedor</th>
-                                                <th>talla 6</th>
-                                                <th>talla 8</th>
-                                                <th>talla 10</th>
-                                                <th>talla 12</th>
-                                                <th>talla 14</th>
-                                                <th>talla 16</th>
-                                                <th>talla 18</th>
-                                                <th>talla 20</th>
-                                                <th>talla 26</th>
-                                                <th>talla 28</th>
-                                                <th>talla 30</th>
-                                                <th>talla 32</th>
-                                                <th>talla 34</th>
-                                                <th>talla 36</th>
-                                                <th>talla 38</th>
-                                                <th>talla S</th>
-                                                <th>talla m</th>
-                                                <th>talla l</th>
-                                                <th>talla xl</th>
-                                                <th>talla u</th>
-                                                <th>talla est</th>
                                                 <th>Total</th>
                                                 <th>estado</th>
                                                 <th>precio</th>

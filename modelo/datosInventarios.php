@@ -2,6 +2,19 @@
 class Inventarios
 {
 
+    public function verTodoInventarioSoporte()
+    {
+        require_once 'db.php';
+        $conexion = new Conexion();
+        $arreglo = array();
+        $i = 0;
+
+        $consulta = "SELECT * FROM inventarios_productos order by id_inventario";
+        $modules = $conexion->query($consulta)->fetchAll();
+
+        return $modules;
+    }
+
     public function verTodoInventario($estado)
     {
         require_once 'db.php';
