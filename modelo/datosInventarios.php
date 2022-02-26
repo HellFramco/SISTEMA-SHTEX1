@@ -100,7 +100,7 @@ class Inventarios
         $arreglo = array();
         $i = 0;
 
-        $consulta = "SELECT * FROM inventarios_productos order by id_inventario";
+        $consulta = "SELECT * FROM inventarios_productos order by referencia";
         $modules = $conexion->query($consulta)->fetchAll();
 
         return $modules;

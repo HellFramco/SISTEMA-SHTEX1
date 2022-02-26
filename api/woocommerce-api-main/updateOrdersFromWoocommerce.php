@@ -145,7 +145,7 @@ use Automattic\WooCommerce\Client;
         //Control de variables internas
 
             //print_r($primaryDBArray);                                // Lista pedidos de HTEX
-            //print_r($listaPedidosWoocommerce);                       // Lista pedidos Woocommerce
+            print_r($listaPedidosWoocommerce);                       // Lista pedidos Woocommerce
             //print_r($woocommerce->get('orders'));                    // Lista en bruto de pedidos Woocommerce
             //return;
             

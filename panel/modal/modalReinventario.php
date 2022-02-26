@@ -737,6 +737,8 @@ $clientes = new Clientes();
 						$pesoTalla6 = (double) @$_POST['pesoTalla6Subida'];
 						$talla6 = (double) @$_POST['talla6Subida'];
 
+						$pesoInicialT6 = @$_POST['nuevoPesoT6'];
+
 						if($pesoTalla6 == NULL || $pesoTalla6 == '' || $talla6 == NULL || $talla6 == ''){
 
 							$comprobar6 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
@@ -748,6 +750,24 @@ $clientes = new Clientes();
 							$XcantidadT6 = round($XcantidadT6);
 
 						}
+						
+						if($pesoInicialT6 == NULL || $pesoInicialT6 == ''){
+
+						}else{
+
+							$xT6 = @$_POST['pesoTalla6Subida'];
+							$sumaXX6 = $xT6 + $pesoInicialT6;
+
+							echo('fds');
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla6 = '$sumaXX6' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
+
 
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
@@ -2837,7 +2857,7 @@ $clientes = new Clientes();
 
 						<div class="col-sm-3">
 							<!-- Talla 6 -->
-							<div style="box-shadow: 10px 10px 20px #ffeeff;background-color: #ffeeff;padding:10px;margin:20px 0px;">
+							<div style="border-width: 1px;border-style: dashed;border-color: black;padding:10px;margin:20px 0px;">
 								<label style="color: gray; text-transform: uppercase;" for="">
 									<?php 
 
@@ -2848,7 +2868,7 @@ $clientes = new Clientes();
 											$comprobar6 = "";
 										}
 										echo "<br>STOCK ACTUAL: ".$key['talla6']."<br>STOCK INICIAL: ".$key['talla6D']."<br>PESO ACTUAL: ".$key['peso_R6']."<br>PESO INICIAL: ".$key['peso_talla6']."";
-										echo "<div id='operationTalla6Container' style='display: none;'>";
+										echo "<div id='operationTalla6Container' style='display: non;'>";
 											echo "<br>-------------------------------------------------<br>";
 											echo "<strong style='color:#D75A58;font-weight:900;font-size:20px;'>ACTUALIZAR STOCK</strong><br><strong style='color:#D75A58;font-weight:900;font-size:10px;'>ACTUALIZAR X PESO</strong><br>Se actualizaron:";
 											if (empty($cantidadT6)){
@@ -4870,6 +4890,7 @@ $clientes = new Clientes();
 				}
 
 	// Funciones de teclado
+
 		function onKeyDownHandler(event) {
 
 			var codigo = event.which || event.keyCode;
@@ -4877,6 +4898,7 @@ $clientes = new Clientes();
 			console.log(codigo);
 
 			if(codigo === 119){
+
 				var i=document.getElementById("botonEnviarF").value = "sumarPeso";
 				document.getElementById("enviarF").click();
 
