@@ -737,8 +737,6 @@ $clientes = new Clientes();
 						$pesoTalla6 = (double) @$_POST['pesoTalla6Subida'];
 						$talla6 = (double) @$_POST['talla6Subida'];
 
-						$pesoInicialT6 = @$_POST['nuevoPesoT6'];
-
 						if($pesoTalla6 == NULL || $pesoTalla6 == '' || $talla6 == NULL || $talla6 == ''){
 
 							$comprobar6 = "<strong style='color:crimson;'>No se puede actualizar<br>stock X peso<br>verifique el peso incial<br>verifique cantidad inicial</strong>";
@@ -750,6 +748,8 @@ $clientes = new Clientes();
 							$XcantidadT6 = round($XcantidadT6);
 
 						}
+
+						$pesoInicialT6 = @$_POST['nuevoPesoT6'];
 						
 						if($pesoInicialT6 == NULL || $pesoInicialT6 == ''){
 
@@ -758,7 +758,6 @@ $clientes = new Clientes();
 							$xT6 = @$_POST['pesoTalla6Subida'];
 							$sumaXX6 = $xT6 + $pesoInicialT6;
 
-							echo('fds');
 							require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_talla6 = '$sumaXX6' WHERE id_inventario =".$_GET['id_inventario'];
@@ -795,6 +794,24 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT8 = @$_POST['nuevoPesoT8'];
+						
+						if($pesoInicialT8 == NULL || $pesoInicialT8 == ''){
+
+						}else{
+
+							$xT8 = @$_POST['pesoTalla8Subida'];
+							$sumaXX8 = $xT8 + $pesoInicialT8;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla8 = '$sumaXX8' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
+
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R8 = '$pesoXsumarT8' WHERE id_inventario =".$_GET['id_inventario'];
@@ -822,6 +839,24 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT10 = @$_POST['nuevoPesoT10'];
+						
+						if($pesoInicialT10 == NULL || $pesoInicialT10 == ''){
+
+						}else{
+
+							$xT10 = @$_POST['pesoTalla10Subida'];
+							$sumaXX10 = $xT10 + $pesoInicialT10;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla10 = '$sumaXX10' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
+						
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R10 = '$pesoXsumarT10' WHERE id_inventario =".$_GET['id_inventario'];
@@ -848,6 +883,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT12 = @$_POST['nuevoPesoT12'];
+						
+						if($pesoInicialT12 == NULL || $pesoInicialT12 == ''){
+
+						}else{
+
+							$xT12 = @$_POST['pesoTalla12Subida'];
+							$sumaXX12 = $xT12 + $pesoInicialT12;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla12 = '$sumaXX12' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R12 = '$pesoXsumarT12' WHERE id_inventario =".$_GET['id_inventario'];
@@ -874,6 +926,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT14 = @$_POST['nuevoPesoT14'];
+						
+						if($pesoInicialT14 == NULL || $pesoInicialT14 == ''){
+
+						}else{
+
+							$xT14 = @$_POST['pesoTalla14Subida'];
+							$sumaXX14 = $xT14 + $pesoInicialT14;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla14 = '$sumaXX14' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R14 = '$pesoXsumarT14' WHERE id_inventario =".$_GET['id_inventario'];
@@ -900,6 +969,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT16 = @$_POST['nuevoPesoT16'];
+						
+						if($pesoInicialT16 == NULL || $pesoInicialT16 == ''){
+
+						}else{
+
+							$xT16 = @$_POST['pesoTalla16Subida'];
+							$sumaXX16 = $xT16 + $pesoInicialT16;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla16 = '$sumaXX16' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R16 = '$pesoXsumarT16' WHERE id_inventario =".$_GET['id_inventario'];
@@ -926,6 +1012,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT18 = @$_POST['nuevoPesoT18'];
+						
+						if($pesoInicialT18 == NULL || $pesoInicialT18 == ''){
+
+						}else{
+
+							$xT18 = @$_POST['pesoTalla18Subida'];
+							$sumaXX18 = $xT18 + $pesoInicialT18;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla18 = '$sumaXX18' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R18 = '$pesoXsumarT18' WHERE id_inventario =".$_GET['id_inventario'];
@@ -952,6 +1055,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT20 = @$_POST['nuevoPesoT20'];
+						
+						if($pesoInicialT20 == NULL || $pesoInicialT20 == ''){
+
+						}else{
+
+							$xT20 = @$_POST['pesoTalla20Subida'];
+							$sumaXX20 = $xT20 + $pesoInicialT20;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla20 = '$sumaXX20' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R20 = '$pesoXsumarT20' WHERE id_inventario =".$_GET['id_inventario'];
@@ -978,6 +1098,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT26 = @$_POST['nuevoPesoT26'];
+						
+						if($pesoInicialT26 == NULL || $pesoInicialT26 == ''){
+
+						}else{
+
+							$xT26 = @$_POST['pesoTalla26Subida'];
+							$sumaXX26 = $xT26 + $pesoInicialT26;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla8 = '$sumaXX8' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R26 = '$pesoXsumarT26' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1004,6 +1141,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT28 = @$_POST['nuevoPesoT28'];
+						
+						if($pesoInicialT28 == NULL || $pesoInicialT28 == ''){
+
+						}else{
+
+							$xT28 = @$_POST['pesoTalla28Subida'];
+							$sumaXX28 = $xT28 + $pesoInicialT28;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla28 = '$sumaXX28' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R28 = '$pesoXsumarT28' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1030,6 +1184,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT30 = @$_POST['nuevoPesoT30'];
+						
+						if($pesoInicialT30 == NULL || $pesoInicialT30 == ''){
+
+						}else{
+
+							$xT30 = @$_POST['pesoTalla30Subida'];
+							$sumaXX30 = $xT30 + $pesoInicialT30;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla30 = '$sumaXX30' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R30 = '$pesoXsumarT30' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1056,6 +1227,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT32 = @$_POST['nuevoPesoT32'];
+						
+						if($pesoInicialT32 == NULL || $pesoInicialT32 == ''){
+
+						}else{
+
+							$xT32 = @$_POST['pesoTalla32Subida'];
+							$sumaXX32 = $xT32 + $pesoInicialT32;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla32 = '$sumaXX32' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R32 = '$pesoXsumarT32' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1082,6 +1270,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT34 = @$_POST['nuevoPesoT34'];
+						
+						if($pesoInicialT34 == NULL || $pesoInicialT34 == ''){
+
+						}else{
+
+							$xT34 = @$_POST['pesoTalla34Subida'];
+							$sumaXX34 = $xT34 + $pesoInicialT34;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla34 = '$sumaXX34' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R34 = '$pesoXsumarT34' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1108,6 +1313,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT36 = @$_POST['nuevoPesoT36'];
+						
+						if($pesoInicialT36 == NULL || $pesoInicialT36 == ''){
+
+						}else{
+
+							$xT36 = @$_POST['pesoTalla36Subida'];
+							$sumaXX36 = $xT36 + $pesoInicialT36;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla36 = '$sumaXX36' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R36 = '$pesoXsumarT36' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1134,6 +1356,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialT38 = @$_POST['nuevoPesoT38'];
+						
+						if($pesoInicialT38 == NULL || $pesoInicialT38 == ''){
+
+						}else{
+
+							$xT38 = @$_POST['pesoTalla38Subida'];
+							$sumaXX38 = $xT38 + $pesoInicialT38;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_talla38 = '$sumaXX38' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_R38 = '$pesoXsumarT38' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1160,6 +1399,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialTs = @$_POST['nuevoPesoTs'];
+						
+						if($pesoInicialTs == NULL || $pesoInicialTs == ''){
+
+						}else{
+
+							$xTs = @$_POST['pesoTallasSubida'];
+							$sumaXXs = $xTs + $pesoInicialTs;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallas = '$sumaXXs' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_Rs = '$pesoXsumarTs' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1186,6 +1442,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialTm = @$_POST['nuevoPesoTm'];
+						
+						if($pesoInicialTm == NULL || $pesoInicialTm == ''){
+
+						}else{
+
+							$xTm = @$_POST['pesoTallamSubida'];
+							$sumaXXm = $xTm + $pesoInicialTm;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallam = '$sumaXXm' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_Rm = '$pesoXsumarTm' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1212,6 +1485,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialTl = @$_POST['nuevoPesoTl'];
+						
+						if($pesoInicialTl == NULL || $pesoInicialTl == ''){
+
+						}else{
+
+							$xTl = @$_POST['pesoTallalSubida'];
+							$sumaXXl = $xTl + $pesoInicialTl;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallal = '$sumaXXl' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_Rl = '$pesoXsumarTl' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1238,6 +1528,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialTxl = @$_POST['nuevoPesoTxl'];
+						
+						if($pesoInicialTxl == NULL || $pesoInicialTxl == ''){
+
+						}else{
+
+							$xTxl = @$_POST['pesoTallaxlSubida'];
+							$sumaXXxl = $xTxl + $pesoInicialTxl;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallaxl = '$sumaXXxl' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_Rxl = '$pesoXsumarTxl' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1264,6 +1571,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialTu = @$_POST['nuevoPesoTu'];
+						
+						if($pesoInicialTu == NULL || $pesoInicialTu == ''){
+
+						}else{
+
+							$xTu = @$_POST['pesoTallauSubida'];
+							$sumaXXu = $xTu + $pesoInicialTu;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallau = '$sumaXXu' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_Ru = '$pesoXsumarTu' WHERE id_inventario =".$_GET['id_inventario'];
@@ -1290,6 +1614,23 @@ $clientes = new Clientes();
 
 						}
 
+						$pesoInicialTest = @$_POST['nuevoPesoTest'];
+						
+						if($pesoInicialTest == NULL || $pesoInicialTest == ''){
+
+						}else{
+
+							$xTest = @$_POST['pesoTallaestSubida'];
+							$sumaXXest = $xTest + $pesoInicialTest;
+
+							require_once("../../modelo/db.php");
+							$conexion = new Conexion();
+							$consulta = "UPDATE inventarios_productos SET peso_tallaest = '$sumaXXest' WHERE id_inventario =".$_GET['id_inventario'];
+							$modules = $conexion->query($consulta);
+							if($modules){
+							}else{ echo "<script> alert('NO Sumado'); </script>"; }
+
+						}
 						require_once("../../modelo/db.php");
 							$conexion = new Conexion();
 							$consulta = "UPDATE inventarios_productos SET peso_Rest = '$pesoXsumarTest' WHERE id_inventario =".$_GET['id_inventario'];
